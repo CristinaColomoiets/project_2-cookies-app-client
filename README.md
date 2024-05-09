@@ -36,7 +36,8 @@ REVIEWS ROUTES / ENDPOINTS
 PATH FOR COOKIES:
 
 | PATH                      | DESCRIPTION           |
-|----------------------     |--------------------
+|---------------------------|-----------------------|
+| `/`                       | Home Page             |
 | `/cookies/my-cookies`     | List of all cookies   |
 | `/cookies/cookies-details`| Details of one cookie |
 | `/cookies/add-cookies`    | Add one cookie        |
@@ -45,6 +46,7 @@ PATH FOR COOKIES:
 PATH FOR REVIEWS:
 
 | PATH                      | DESCRIPTION           |
-|----------------------     |--------------------
+|----------------------     |--------------------   |
+| `/`                       | Home Page             |
 | `/reviews/my-reviews`     | List of all reviews   |
 | `/reviews/add-reviews`    | Add one reviews       |
