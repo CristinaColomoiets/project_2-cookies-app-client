@@ -10,28 +10,41 @@ Currently, two official plugins are available:
 
 
 
-// COOKIES ROUTES / ENDPOINTS
+COOKIES ROUTES / ENDPOINTS
+
+| HTTP verb     | URL                  |Request body      | Action                      | 
+| ------------- |--------------------  | -----------------|-----------------------------|         
+| POST          | `/cookies`           | JSON             |Create a new cookie          |
+| GET           | `/cookies `          | (empty)          |Rerurns all the cookies      |
+| GET           | `/cookies/:cookieId` | (empty)          |Returns the spicified cookie |
+| PUT/PATCH     | `/cookies/:cookieId` | JSON             |Edit the specified cookie    |
+| DELETE        | `/cookies/:cookieId `| (empty)          |Delete the specified cookie  |
+
+
+REVIEWS ROUTES / ENDPOINTS
 
 | HTTP verb     | URL                |Request body      | Action                      | 
 | ------------- |--------------------| -----------------|-----------------------------|         
-| POST          | /cookies           | JSON             |Create a new cookie          |
-| GET           | /cookies           | (empty)          |Rerurns all the cookies      |
-| GET           | /cookies/:cookieId | (empty)          |Returns the spicified cookie |
-| PUT/PATCH     | /cookies/:cookieId | JSON             |Edit the specified cookie    |
-| DELETE        | /cookies/:cookieId | (empty)          |Delete the specified cookie  |
+| POST          | `/reviews `        | JSON             |Create a new review          |
 
 
 
 
-// REVIEWS ROUTES / ENDPOINTS
-
-| HTTP verb     | URL                |Request body      | Action                      | 
-| ------------- |--------------------| -----------------|-----------------------------|         
-| POST          | /reviews           | JSON             |Create a new review          |
 
 
 
-| GET           | /cookies           | (empty)          |Rerurns all the cookies      |
-| GET           | /cookies/:cookieId | (empty)          |Returns the spicified cookie |
-| PUT/PATCH     | /cookies/:cookieId | JSON             |Edit the specified cookie    |
-| DELETE        | /cookies/:cookieId | (empty)          |Delete the specified cookie  |
+PATH FOR COOKIES:
+
+| PATH                      | DESCRIPTION           |
+|----------------------     |--------------------
+| `/cookies/my-cookies`     | List of all cookies   |
+| `/cookies/cookies-details`| Details of one cookie |
+| `/cookies/add-cookies`    | Add one cookie        |
+
+
+PATH FOR REVIEWS:
+
+| PATH                      | DESCRIPTION           |
+|----------------------     |--------------------
+| `/reviews/my-reviews`     | List of all reviews   |
+| `/reviews/add-reviews`    | Add one reviews       |
