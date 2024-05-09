@@ -6,3 +6,32 @@ Currently, two official plugins are available:
 
 - [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
 - [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+
+
+
+
+// COOKIES ROUTES / ENDPOINTS
+
+| HTTP verb     | URL                |Request body      | Action                      | 
+| ------------- |--------------------| -----------------|-----------------------------|         
+| POST          | /cookies           | JSON             |Create a new cookie          |
+| GET           | /cookies           | (empty)          |Rerurns all the cookies      |
+| GET           | /cookies/:cookieId | (empty)          |Returns the spicified cookie |
+| PUT/PATCH     | /cookies/:cookieId | JSON             |Edit the specified cookie    |
+| DELETE        | /cookies/:cookieId | (empty)          |Delete the specified cookie  |
+
+
+
+
+// REVIEWS ROUTES / ENDPOINTS
+
+| HTTP verb     | URL                |Request body      | Action                      | 
+| ------------- |--------------------| -----------------|-----------------------------|         
+| POST          | /reviews           | JSON             |Create a new review          |
+
+
+
+| GET           | /cookies           | (empty)          |Rerurns all the cookies      |
+| GET           | /cookies/:cookieId | (empty)          |Returns the spicified cookie |
+| PUT/PATCH     | /cookies/:cookieId | JSON             |Edit the specified cookie    |
+| DELETE        | /cookies/:cookieId | (empty)          |Delete the specified cookie  |
