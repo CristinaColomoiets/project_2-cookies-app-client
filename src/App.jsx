@@ -9,7 +9,7 @@ function App() {
   return (
     <div className='App'>
       <Routes>
-        <Route path='/' element={<HomePage />} />
+        <Route path='/Home' element={<HomePage />} />
         <Route path='/cookies/:cookieId' element={<CookiesDetailsPage />} />
       </Routes>
     </div>

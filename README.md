@@ -37,7 +37,7 @@ PATH FOR COOKIES:
 
 | PATH                      | DESCRIPTION           |
 |---------------------------|-----------------------|
-| `/`                       | Home Page             |
+| `/Home`                   | Home Page             |
 | `/cookies/my-cookies`     | List of all cookies   |
 | `/cookies/cookies-details`| Details of one cookie |
 | `/cookies/add-cookies`    | Add one cookie        |

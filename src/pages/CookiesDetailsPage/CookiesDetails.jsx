@@ -35,8 +35,8 @@ const CookiesDetailsPage = () => {
 
                 <Col md={{ span: 6 }}>
                     <ListGroup className="mt-5">
-                        <h2>Cookie name : {cookie.name}</h2>
-                        <h3>Brand : {cookie.brand}</h3>
+                        <h2>{cookie.name}</h2>
+                        <h5>Brand : {cookie.brand}</h5>
                         <p>Origin Country : {cookie.origin_country}</p>
                         <p>Bought in : {cookie.buy_country}</p>
                         <p>Available in : {cookie.buy_supermarket}</p>
