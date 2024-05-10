@@ -1,4 +1,4 @@
-const Search = () =>{
+const CookiesFilter = () => {
     return (
         <div>
             <h2>Soy  componente Search</h2>
@@ -6,4 +6,4 @@ const Search = () =>{
 
     )
 }
-export default Search
+export default CookiesFilter

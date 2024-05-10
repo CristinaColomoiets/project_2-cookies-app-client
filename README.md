@@ -16,7 +16,7 @@ COOKIES ROUTES / ENDPOINTS
 | ------------- |--------------------  | -----------------|-----------------------------|         
 | POST          | `/cookies`           | JSON             |Create a new cookie          |
 | GET           | `/cookies `          | (empty)          |Rerurns all the cookies      |
-| GET           | `/cookies/:cookieId` | (empty)          |Returns the spicified cookie |
+| GET           | `/cookies/:cookieId` | (empty)          |Returns the specified cookie |
 | PUT/PATCH     | `/cookies/:cookieId` | JSON             |Edit the specified cookie    |
 | DELETE        | `/cookies/:cookieId `| (empty)          |Delete the specified cookie  |
 
