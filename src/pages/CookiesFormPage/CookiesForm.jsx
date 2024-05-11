@@ -1,7 +1,9 @@
+import AddNewCookie from "../../components/AddNewCookie/AddNewCookie"
+
 const CookiesFormPage = () =>{
     return(
         <div>
-            <h1>Soy la CookiesFormPage</h1>
+            <AddNewCookie/>
         </div>
     )
 }
