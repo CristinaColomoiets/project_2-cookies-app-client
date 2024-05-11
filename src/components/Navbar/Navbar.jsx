@@ -5,14 +5,13 @@ import cookieLogoImg from "../../assets/cookie-navbar2.png"
 const Navigation = () => {
     return (
 
-        <Navbar expand="md" className="bg-body-tertiary" data-bs-theme="white">
+        <Navbar expand="md" className="bg-body-tertiary" data-bs-theme="dark">
             <Container>
                 <Link to="/Home">
                     <Navbar.Brand as="span" href="#home">
                         <img
                             src={cookieLogoImg}
-                            width="20"
-                            height="50"
+                            height="35"
                             className="d-inline-block align-top"
                             alt="React Bootstrap logo"
                         />
