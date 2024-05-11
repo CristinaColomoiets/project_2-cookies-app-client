@@ -24,7 +24,6 @@ const CookiesList = () => {
     }
 
     return (
-
         <div className="CookiesList" >
 
             <Row className="mt-5">
