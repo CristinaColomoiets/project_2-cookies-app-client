@@ -1,7 +1,8 @@
 import axios from "axios"
 import { useState, useEffect } from "react"
-import { Col, Row, Container, ListGroup } from "react-bootstrap"
+import { Col, Row, Container, ListGroup, Button } from "react-bootstrap"
 import { useParams } from "react-router-dom"
+import { Link } from "react-router-dom"
 
 
 const API_URL = "http://localhost:5000"
@@ -26,7 +27,15 @@ const CookiesDetailsPage = () => {
     return (
 
         <Container className="mt-5">
-
+            <Row>
+                <Col>
+                    <Link to="/Home">
+                        <Button as="span" variant="primary" size="sm">
+                            Go Back
+                        </Button>
+                    </Link>
+                </Col>
+            </Row>
             <Row>
 
                 <Col md={{ span: 6 }}>
@@ -34,7 +43,7 @@ const CookiesDetailsPage = () => {
                 </Col>
 
                 <Col md={{ span: 6 }}>
-                    <ListGroup className="mt-5">
+                    <ListGroup className="mt-0">
                         <h2>{cookie.name}</h2>
                         <h5>Brand : {cookie.brand}</h5>
                         <p>Origin Country : {cookie.origin_country}</p>
@@ -63,7 +72,15 @@ const CookiesDetailsPage = () => {
                             <li>Kilocalories : {cookie.nutrients?.kcal}</li>
                             <li>Protein : {cookie.nutrients?.protein}</li>
                         </ul>
+
                     </ListGroup>
+                </Col>
+                <Col >
+                </Col>
+                <Col>
+                    <Button variant="secondary" size="sm">
+                        Edit cookie's details
+                    </Button>
                 </Col>
 
                 <Col md={{ span: 12 }}>
