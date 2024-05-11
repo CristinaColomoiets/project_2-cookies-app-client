@@ -1,4 +1,3 @@
-// import CookiesCard from '../CookiesCard/CookiesCard'
 import axios from "axios"
 import { useState, useEffect } from "react"
 import { Col, Row } from "react-bootstrap"

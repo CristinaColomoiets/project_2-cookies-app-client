@@ -15,7 +15,6 @@ const Navigation = () => {
                             className="d-inline-block align-top"
                             alt="React Bootstrap logo"
                         />
-
                     </Navbar.Brand>
                 </Link>
 
@@ -29,10 +28,13 @@ const Navigation = () => {
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="me-auto">
-                        <Nav.Link href="#link">Add a new cookie</Nav.Link>
-                        <Nav.Link href="#link">Reviews</Nav.Link>
+                        <Link to={`/cookies/add-cookie`}>
+                            <Nav.Link href="#link" as='span'>Add a new cookie</Nav.Link>
+                        </Link>
+                        <Link to={`/reviews/all-reviews`}>
+                             <Nav.Link href="#link" as='span'>Reviews</Nav.Link>
+                        </Link>
                         <Nav.Link href="#link">Cookies Community</Nav.Link>
-
                     </Nav>
                 </Navbar.Collapse>
             </Container>

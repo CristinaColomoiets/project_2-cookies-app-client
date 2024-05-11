@@ -37,16 +37,14 @@ PATH FOR COOKIES:
 
 | PATH                      | DESCRIPTION           |
 |---------------------------|-----------------------|
-| `/Home`                   | Home Page             |
-| `/cookies/my-cookies`     | List of all cookies   |
+| `/Home`                   | Home Page(List of all cookies)             |
 | `/cookies/cookies-details`| Details of one cookie |
-| `/cookies/add-cookies`    | Add one cookie        |
+| `/cookies/add-cookie`     | Add one cookie        |
 
 
 PATH FOR REVIEWS:
 
 | PATH                      | DESCRIPTION           |
 |----------------------     |--------------------   |
-| `/`                       | Home Page             |
-| `/reviews/my-reviews`     | List of all reviews   |
-| `/reviews/add-reviews`    | Add one reviews       |
+| `/reviews/all-reviews`     | List of all reviews   |
+| `/reviews/add-review`      | Add one reviews       |
