@@ -10,13 +10,12 @@ const API_URL = "http://localhost:5000"
 const CookiesCard = ({ name, image_url, brand, id, getAllCookies }) => {
 
     const deleteCookie = () => {
-
         axios
             .delete(`${API_URL}/cookies/${id}`)
             .then(() => getAllCookies())
             .catch((err) => console.log(err))
-
     }
+
     return (
         <Card border="secondary">
             <Card.Img variant="top" src={image_url} />
@@ -31,14 +30,14 @@ const CookiesCard = ({ name, image_url, brand, id, getAllCookies }) => {
                     <Col md={{ span: 4 }}>
                         <Card.Body>
                             <Link to={`/cookies/${id}`}>
-                                <Button as="span" href="#">Details</Button>
+                                <Button as="span">Details</Button>
                             </Link>
                         </Card.Body>
                     </Col>
 
                     <Col md={{ span: 4 }}>
                         <Card.Body>
-                            <Button as="span" href="#" onClick={deleteCookie}>X </Button>
+                            <Button as="span" onClick={deleteCookie}>X </Button>
                         </Card.Body>
                     </Col>
                 </Row>

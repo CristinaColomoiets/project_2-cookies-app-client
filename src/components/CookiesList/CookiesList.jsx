@@ -3,6 +3,7 @@ import { useState, useEffect } from "react"
 import { Col, Row } from "react-bootstrap"
 import CookiesCard from "../CookiesCard/CookiesCard"
 
+// TODO: IMPLEMENTAR ESTADO DE CARGA
 
 const API_URL = "http://localhost:5000"
 

@@ -1,23 +1,16 @@
 import './App.css'
-import 'bootstrap/dist/css/bootstrap.min.css';
-import { Routes, Route } from 'react-router-dom'
-
-import HomePage from './pages/HomePage/HomePage'
-import CookiesDetailsPage from './pages/CookiesDetailsPage/CookiesDetails'
-import CookiesFormPage from './pages/CookiesFormPage/CookiesForm'
-import ReviewsPage from './pages/ReviewsPage/ReviewsPage'
-
+import 'bootstrap/dist/css/bootstrap.min.css'
+import Navigation from './components/Navbar/Navbar'
+import AppRoutes from './routes/AppRoutes'
 
 function App() {
 
   return (
     <div className='App'>
-      <Routes>
-        <Route path='/' element={<HomePage />} />
-        <Route path='/cookies/:cookieId' element={<CookiesDetailsPage />} />
-        <Route path='/cookies/add-cookie' element={<CookiesFormPage />} />
-        <Route path='/reviews/all-reviews' element={<ReviewsPage />} />
-      </Routes>
+
+      <Navigation/>
+      <AppRoutes/>
+     
     </div>
   )
 }

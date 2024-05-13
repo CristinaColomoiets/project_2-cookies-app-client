@@ -8,9 +8,9 @@ const AddNewReview = () => {
 
     const [reviewData, setReviewData] = useState({
         like: false,
-        dipping_rating: 1,
-        user_name: "",
-        comment_text: ""
+        dippingRating: 1,
+        userName: "",
+        commentText: ""
     })
 
 
@@ -22,46 +22,39 @@ const AddNewReview = () => {
 
     return (
         <div className="NewReviewForm mt-3">
-            <Container>
-                <Row>
-                    <Col md={{ span: 12 }}>
 
+            <Form.Group className="mb-3"
+                controlId="userName"
+            >
+                <Form.Label
+                    label="User-name"
+                > </Form.Label>
+                <Form.Control
+                    type="text"
 
-                        <Form.Group className="mb-3"
-                            controlId="userName"
-
-                        >
-                            <Form.Label
-                                label="User-name"
-                            > </Form.Label>
-                            <Form.Control
-                                type="text"
-
-                                name="user_name"
-                                value={reviewData.user_name}
-                                onChange={handleInputChange}
-                            />
-                        </Form.Group>
+                    name="user_name"
+                    value={reviewData.userName}
+                    onChange={handleInputChange}
+                />
+            </Form.Group>
 
 
 
-                        <FloatingLabel
-                            controlId="floatingTextarea2"
-                            label="Add your review"
+            <FloatingLabel
+                controlId="floatingTextarea2"
+                label="Add your review"
 
-                        >
-                            <Form.Control
-                                as="textarea"
-                                style={{ height: '100px' }}
-                                name="comment_text"
-                                value={reviewData.comment_text}
-                                onChange={handleInputChange}
-                            />
-                        </FloatingLabel>
+            >
+                <Form.Control
+                    as="textarea"
+                    style={{ height: '100px' }}
+                    name="comment_text"
+                    value={reviewData.commentText}
+                    onChange={handleInputChange}
+                />
+            </FloatingLabel>
 
-                    </Col>
-                </Row>
-            </Container>
+    
         </div>
     )
 }
