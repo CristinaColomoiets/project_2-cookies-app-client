@@ -29,7 +29,7 @@ const CookiesDetailsPage = () => {
         <Container className="mt-5">
             <Row>
                 <Col>
-                    <Link to="/Home">
+                    <Link to="/">
                         <Button as="span" variant="primary" size="sm">
                             Go Back
                         </Button>

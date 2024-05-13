@@ -1,9 +1,22 @@
 
 import { Row, Col, Card, Button, Container } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
+import { useState, useEffect } from 'react';
+
+const API_URL = "http://localhost:5000"
 
 
-const CookiesCard = ({ name, image_url, brand, id }) => {
+const CookiesCard = ({ name, image_url, brand, id, getAllCookies }) => {
+
+    const deleteCookie = () => {
+
+        axios
+            .delete(`${API_URL}/cookies/${id}`)
+            .then(() => getAllCookies())
+            .catch((err) => console.log(err))
+
+    }
     return (
         <Card border="secondary">
             <Card.Img variant="top" src={image_url} />
@@ -15,27 +28,17 @@ const CookiesCard = ({ name, image_url, brand, id }) => {
             </Card.Body>
             <Container>
                 <Row>
-                    <Col md ={{span: 4}}>
+                    <Col md={{ span: 4 }}>
                         <Card.Body>
                             <Link to={`/cookies/${id}`}>
-                                <Button href="#">Details</Button>
+                                <Button as="span" href="#">Details</Button>
                             </Link>
                         </Card.Body>
                     </Col>
 
-                    <Col md ={{span: 4}}>
+                    <Col md={{ span: 4 }}>
                         <Card.Body>
-                            <Link to={`/cookies/${id}`}>
-                                <Button href="#">Edit</Button>
-                            </Link>
-                        </Card.Body>
-                    </Col>
-
-                    <Col md ={{span: 4}}>
-                        <Card.Body>
-                            <Link to={`/cookies/${id}`}>
-                                <Button href="#">Delete</Button>
-                            </Link>
+                            <Button as="span" href="#" onClick={deleteCookie}>X </Button>
                         </Card.Body>
                     </Col>
                 </Row>

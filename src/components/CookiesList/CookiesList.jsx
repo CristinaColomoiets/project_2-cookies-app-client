@@ -31,7 +31,7 @@ const CookiesList = () => {
                     cookies.map((eachCookie) => {
                         return (
                             <Col md={{ span: 3 }} key={eachCookie.id}>
-                                <CookiesCard {...eachCookie} />
+                                <CookiesCard {...eachCookie} getAllCookies={getAllCookies} />
                             </Col>
                         )
                     })
