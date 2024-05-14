@@ -46,7 +46,7 @@ const CookiesDetailsPage = () => {
                 <Row>
 
                     <Col md={{ span: 4, offset: 2 }}>
-                        <img src={cookie.image_url}></img>
+                        <img src={cookie.imageUrl}></img>
                     </Col>
 
                     <Col md={{ span: 2 }}>
@@ -57,9 +57,9 @@ const CookiesDetailsPage = () => {
                             <hr/>
 
                             <h5>Brand : {cookie.brand}</h5>
-                            <p>Origin Country : {cookie.origin_country}</p>
-                            <p>Bought in : {cookie.buy_country}</p>
-                            <p>Available in : {cookie.buy_supermarket}</p>
+                            <p>Origin Country : {cookie.originCountry}</p>
+                            <p>Bought in : {cookie.buyCountry}</p>
+                            <p>Available in : {cookie.buySupermarket}</p>
 
                             <p>Suitable for Celiac :
                                 {
@@ -67,17 +67,7 @@ const CookiesDetailsPage = () => {
                                 }
                             </p>
 
-                            <ListGroup.Item>
-
-                                <p>Ingredients : </p>
-                                <ul>
-                                    {
-                                        cookie.ingredients.map((elm) => <li key={elm}>{elm}</li>)
-                                    }
-                                </ul>
-
-                            </ListGroup.Item>
-
+                          
                         </ListGroup>
                     </Col>
 
@@ -88,13 +78,15 @@ const CookiesDetailsPage = () => {
                             <p>Ingredients : </p>
                             <ul>
                                 {
-                                    cookie.ingredients?.map((elm) => <li key={elm}>{elm}</li>)
+                                    cookie.ingredients?.map((elm) =>{
+                                        return <li key={elm}>{elm}</li>
+                                    })
                                 }
                             </ul>
                             <p>Allergens : </p>
                             <ol>
-                                <li>{cookie.allergen.cereal ? " Contains cereal " : " Not contains cereal"}</li>
-                                <li>{cookie.allergen.soy ? " Contains soy " : " Not contains soy"}</li>
+                                <li>{cookie.allergen?.cereal ? " Contains cereal " : " Not contains cereal"}</li>
+                                <li>{cookie.allergen?.soy ? " Contains soy " : " Not contains soy"}</li>
                                 <li>{cookie.allergen?.wheat ? " Contains wheat " : " Not contains wheat"}</li>
                                 <li>{cookie.allergen?.milk ? " Contains milk " : " Not contains milk"}</li>
                             </ol>
@@ -113,7 +105,6 @@ const CookiesDetailsPage = () => {
                         </Button>
                     </Col>
             
-
                     <Col md={{ span: 12 }}>
                         <p>{cookie.description}</p>
                     </Col>
@@ -121,12 +112,8 @@ const CookiesDetailsPage = () => {
                     <Col md={{ span: 12 }}>
                         <h4>"Aqui van los comentarios jejej"</h4>
                     </Col>
-
-            </Row>
+                </Row>
             }
-          
-            
-        
         </Container>
 
     )

@@ -7,7 +7,7 @@ import { useState, useEffect } from 'react';
 const API_URL = "http://localhost:5000"
 
 
-const CookiesCard = ({ name, image_url, brand, id, getAllCookies }) => {
+const CookieCard = ({ name, imageUrl, brand, id, getAllCookies }) => {
 
     const deleteCookie = () => {
         axios
@@ -18,7 +18,7 @@ const CookiesCard = ({ name, image_url, brand, id, getAllCookies }) => {
 
     return (
         <Card border="secondary">
-            <Card.Img variant="top" src={image_url} />
+            <Card.Img variant="top" src={imageUrl} />
             <Card.Body>
                 <Card.Title>{name}</Card.Title>
                 <Card.Text>
@@ -46,4 +46,4 @@ const CookiesCard = ({ name, image_url, brand, id, getAllCookies }) => {
     );
 
 }
-export default CookiesCard
+export default CookieCard

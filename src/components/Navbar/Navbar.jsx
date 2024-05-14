@@ -7,7 +7,7 @@ const Navigation = () => {
 
         <Navbar expand="md" className="bg-body-tertiary" data-bs-theme="dark">
             <Container>
-                <Link to="/Home">
+                <Link to="/">
                     <Navbar.Brand as="span" href="#home">
                         <img
                             src={cookieLogoImg}

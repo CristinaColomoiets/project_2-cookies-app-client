@@ -1,5 +1,6 @@
 import NewCookieForm from "../../components/NewCookieForm/NewCookieForm"
 import img_bg from './../../assets/add-cookie-image.jpg'
+import {Container, Row, Col} from 'react-bootstrap'
 
 const CookiesFormPage = () =>{
     return(
