@@ -1,7 +1,7 @@
 import axios from "axios"
 import { useState, useEffect } from "react"
 import { Col, Row } from "react-bootstrap"
-import CookiesCard from "../CookiesCard/CookiesCard"
+import CookieCard from "../CookieCard/CookieCard"
 
 // TODO: IMPLEMENTAR ESTADO DE CARGA
 
@@ -17,7 +17,7 @@ const CookiesList = () => {
 
     const getAllCookies = () => {
         axios
-            .get(`${API_URL}/cookies`)
+            .get(`${API_URL}/cookie`)
             .then(({ data }) => setCookies(data))
             .catch((err) => console.log(err))
 
@@ -32,7 +32,7 @@ const CookiesList = () => {
                     cookies.map((eachCookie) => {
                         return (
                             <Col md={{ span: 3 }} key={eachCookie.id}>
-                                <CookiesCard {...eachCookie} getAllCookies={getAllCookies} />
+                                <CookieCard {...eachCookie} getAllCookies={getAllCookies} />
                             </Col>
                         )
                     })

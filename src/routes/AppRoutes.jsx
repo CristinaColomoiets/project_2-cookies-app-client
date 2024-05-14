@@ -7,14 +7,14 @@ import ReviewsPage from './../pages/ReviewsPage/ReviewsPage'
 
 const AppRoutes = () => {
 
-    return (
-        <Routes>
-        <Route path='/' element={<HomePage />} />
-        <Route path='/cookies/:cookieId' element={<CookiesDetailsPage />} />
-        <Route path='/cookies/add-cookie' element={<CookiesFormPage />} />
-        <Route path='/reviews/all-reviews' element={<ReviewsPage />} />
-      </Routes>
-    )
+  return (
+    <Routes>
+      <Route path='/' element={<HomePage />} />
+      <Route path='/cookie/:cookieId' element={<CookiesDetailsPage />} />
+      <Route path='/cookie/add-cookie' element={<CookiesFormPage />} />
+      <Route path='/reviews/all-reviews' element={<ReviewsPage />} />
+    </Routes>
+  )
 }
 
 export default AppRoutes

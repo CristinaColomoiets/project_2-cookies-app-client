@@ -34,7 +34,7 @@ const NewCookieForm = () => {
     const navigate = useNavigate()
 
     const handleInputChange = (event) => {
-        const { name, value, ckecked } = event.target
+        const { name, value } = event.target
         setcookieData({ ...cookieData, [name]: value })
     }
 
@@ -153,7 +153,7 @@ const NewCookieForm = () => {
                 <Button type="submit">Submit</Button>
 
             </Form>
-                   
+
         </div>
     )
 }
