@@ -78,60 +78,46 @@ const CookiesDetailsPage = () => {
                                     }
                                 </p>
 
-                                <ListGroup.Item>
-
-                                    <p>Ingredients : </p>
-                                    <ul>
-                                        {
-                                            cookie.ingredients.map((elm) => <li key={elm}>{elm}</li>)
-                                        }
-                                    </ul>
-
-                                </ListGroup.Item>
 
                             </ListGroup>
                         </Col>
 
-                        <Col md={{ span: 2 }}>
+                        <Button variant="secondary" size="sm">
+                            Edit cookie's details
+                        </Button>
 
-                            <ListGroup className="mt-0">
+                        <ListGroup className="mt-0">
 
-                                <p>Ingredients : </p>
-                                <ul>
-                                    {
-                                        cookie.ingredients?.map((elm) => <li key={elm}>{elm}</li>)
-                                    }
-                                </ul>
-                                <p>Allergens : </p>
-                                <ol>
-                                    <li>{cookie.allergen.cereal ? " Contains cereal " : " Not contains cereal"}</li>
-                                    <li>{cookie.allergen.soy ? " Contains soy " : " Not contains soy"}</li>
-                                    <li>{cookie.allergen?.wheat ? " Contains wheat " : " Not contains wheat"}</li>
-                                    <li>{cookie.allergen?.milk ? " Contains milk " : " Not contains milk"}</li>
-                                </ol>
-                                <p>Nutrients : </p>
-                                <ul>
-                                    <li>Kilocalories : {cookie.nutrients?.kcal}</li>
-                                    <li>Protein : {cookie.nutrients?.protein}</li>
-                                </ul>
+                            <p>Ingredients : </p>
+                            <ul>
+                                {
+                                    cookie.ingredients?.map((elm) => {
+                                        return <li key={elm}>{elm}</li>
+                                    })
+                                }
+                            </ul>
+                            <p>Allergens : </p>
+                            <ol>
+                                <li>{cookie.allergen?.cereal ? " Contains cereal " : " Not contains cereal"}</li>
+                                <li>{cookie.allergen?.soy ? " Contains soy " : " Not contains soy"}</li>
+                                <li>{cookie.allergen?.wheat ? " Contains wheat " : " Not contains wheat"}</li>
+                                <li>{cookie.allergen?.milk ? " Contains milk " : " Not contains milk"}</li>
+                            </ol>
+                            <p>Nutrients : </p>
+                            <ul>
+                                <li>Kilocalories : {cookie.nutrients?.kcal}</li>
+                                <li>Protein : {cookie.nutrients?.protein}</li>
+                            </ul>
+                        </ListGroup>
 
-                            </ListGroup>
+                        <Button
+                            variant="secondary"
+                            size="sm"
+                            as="span"
+                            onClick={deleteCookie}>Delete Cookie
+                        </Button>
 
-                            <hr />
 
-                            <Button variant="secondary" size="sm">
-                                Edit cookie's details
-                            </Button>
-
-
-                            <Button
-                                variant="secondary"
-                                size="sm"
-                                as="span"
-                                onClick={deleteCookie}>Delete Cookie
-                            </Button>
-
-                        </Col>
 
 
                         <Col md={{ span: 12 }}>
