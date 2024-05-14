@@ -82,10 +82,6 @@ const CookiesDetailsPage = () => {
                             </ListGroup>
                         </Col>
 
-                        <Button variant="secondary" size="sm">
-                            Edit cookie's details
-                        </Button>
-
                         <ListGroup className="mt-0">
 
                             <p>Ingredients : </p>
@@ -110,15 +106,18 @@ const CookiesDetailsPage = () => {
                             </ul>
                         </ListGroup>
 
+                        <Link  to={`/cookie/edit/${cookieId}`}>
+                            <Button as='span' variant="secondary" size="sm">
+                                Edit cookie's details
+                            </Button>
+                        </Link>
+
                         <Button
                             variant="secondary"
                             size="sm"
                             as="span"
                             onClick={deleteCookie}>Delete Cookie
                         </Button>
-
-
-
 
                         <Col md={{ span: 12 }}>
                             <p>{cookie.description}</p>

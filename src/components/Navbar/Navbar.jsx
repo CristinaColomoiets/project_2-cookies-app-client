@@ -28,7 +28,7 @@ const Navigation = () => {
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="me-auto">
-                        <Link to={`/cookies/add-cookie`}>
+                        <Link to={`/cookie/add-cookie`}>
                             <Nav.Link href="#link" as='span'>Add a new cookie</Nav.Link>
                         </Link>
                         <Link to={`/reviews/all-reviews`}>
