@@ -71,8 +71,14 @@ const NewCookieForm = () => {
     const handleCookieFormSubmit = (event) => {
         event.preventDefault()
 
+        const fullCookieData = {
+            ...cookieData,
+            nutrients: nutrientsData,
+            allergen: allergenData
+        }
+
         axios
-            .post(`${API_URL}/cookie`, cookieData)
+            .post(`${API_URL}/cookie`, fullCookieData)
             .then(() => navigate('/'))
             .catch((err) => console.log(err))
 
@@ -82,9 +88,8 @@ const NewCookieForm = () => {
     return (
         <div className='NewCookieForm'>
             <Form onSubmit={handleCookieFormSubmit}>
-                <Form.Group className="mb-3">
+                <Form.Group className="mb-3" controlId="imageUrl">
                     <Form.Control
-                        controlId="image_url"
                         name="imageUrl"
                         placeholder="Insert image URL"
                         type="text"
@@ -93,9 +98,8 @@ const NewCookieForm = () => {
                     />
                 </Form.Group>
 
-                <Form.Group className="mb-3">
+                <Form.Group className="mb-3" controlId="name">
                     <Form.Control
-                        controlId="name"
                         name="name"
                         placeholder="Name of Cookie"
                         type='text'
@@ -104,9 +108,8 @@ const NewCookieForm = () => {
                     />
                 </Form.Group>
 
-                <Form.Group className="mb-3">
+                <Form.Group className="mb-3" controlId="brand">
                     <Form.Control
-                        controlId="brand"
                         name='brand'
                         placeholder="Brand of Cookie"
                         type='text'
@@ -115,9 +118,8 @@ const NewCookieForm = () => {
                     />
                 </Form.Group>
 
-                <Form.Group className="mb-3">
+                <Form.Group className="mb-3" controlId="originCountry">
                     <Form.Control
-                        controlId="originCountry"
                         name='originCountry'
                         placeholder="Country"
                         type='text'
@@ -126,9 +128,8 @@ const NewCookieForm = () => {
                     />
                 </Form.Group>
 
-                <Form.Group className="mb-3">
+                <Form.Group className="mb-3" controlId="buyCountry">
                     <Form.Control
-                        controlId="buyCountry"
                         name='buyCountry'
                         placeholder="Name of contry where was it bought..."
                         type='text'
@@ -137,9 +138,8 @@ const NewCookieForm = () => {
                     />
                 </Form.Group>
 
-                <Form.Group className="mb-3">
+                <Form.Group className="mb-3" controlId="buySupermarket">
                     <Form.Control
-                        controlId="buySupermarket"
                         name='buySupermarket'
                         placeholder="Name of supermarket where was it bought..."
                         type='text'
@@ -148,9 +148,8 @@ const NewCookieForm = () => {
                     />
                 </Form.Group>
 
-                <Form.Group className="mb-3">
+                <Form.Group className="mb-3" controlId="celiac">
                     <Form.Check
-                        controlId="celiac"
                         name='celiac'
                         type="checkbox"
                         label="Suitable for celiac?"
@@ -159,26 +158,27 @@ const NewCookieForm = () => {
                     />
                 </Form.Group>
 
-                <Form.Group className="mb-3">
-                    <Form.Check controlId="ingredients" name="Sugar" type='checkbox' label="Sugar" value="Sugar" checked={cookieData.ingredients.includes('Sugar')} onChange={handleIngredientsChange} />
-                    <Form.Check controlId="ingredients" name="Flour" type='checkbox' label="Flour" value="Flour" checked={cookieData.ingredients.includes('Flour')} onChange={handleIngredientsChange} />
-                    <Form.Check controlId="ingredients" name="Chocolate" type='checkbox' label="Chocolate" value="Chocolate" checked={cookieData.ingredients.includes('Chocolate')} onChange={handleIngredientsChange} />
-                    <Form.Check controlId="ingredients" name="Cacao" type='checkbox' label="Cacao" value="Cacao" checked={cookieData.ingredients.includes('Cacao')} onChange={handleIngredientsChange} />
-                    <Form.Check controlId="ingredients" name="Fruits" type='checkbox' label="Fruits" value="Fruits" checked={cookieData.ingredients.includes('Fruits')} onChange={handleIngredientsChange} />
+                <Form.Group className="mb-3" controlId="ingredients">
+                    <Form.Check name="Sugar" type='checkbox' label="Sugar" value="Sugar" checked={cookieData.ingredients.includes('Sugar')} onChange={handleIngredientsChange} />
+                    <Form.Check name="Flour" type='checkbox' label="Flour" value="Flour" checked={cookieData.ingredients.includes('Flour')} onChange={handleIngredientsChange} />
+                    <Form.Check name="Chocolate" type='checkbox' label="Chocolate" value="Chocolate" checked={cookieData.ingredients.includes('Chocolate')} onChange={handleIngredientsChange} />
+                    <Form.Check name="Cacao" type='checkbox' label="Cacao" value="Cacao" checked={cookieData.ingredients.includes('Cacao')} onChange={handleIngredientsChange} />
+                    <Form.Check name="Fruits" type='checkbox' label="Fruits" value="Fruits" checked={cookieData.ingredients.includes('Fruits')} onChange={handleIngredientsChange} />
                 </Form.Group>
 
-                <Form.Group>
-                    <Form.Check controlId="cereal" name='cereal' type="switch" label="Cereal" checked={allergenData.cereal} onChange={handleAllergenChande} />
-                    <Form.Check controlId="soy" name='soy' type="switch" label="Soy" checked={allergenData.soy} onChange={handleAllergenChande} />
-                    <Form.Check controlId="wheat" name='wheat' type="switch" label="Wheat" checked={allergenData.wheat} onChange={handleAllergenChande} />
-                    <Form.Check controlId="milk" name='milk' type="switch" label="Milk" checked={allergenData.milk} onChange={handleAllergenChande} />
+                <Form.Group controlId="allergen">
+                    <Form.Check name='cereal' type="switch" label="Cereal" checked={allergenData.cereal} onChange={handleAllergenChande} />
+                    <Form.Check name='soy' type="switch" label="Soy" checked={allergenData.soy} onChange={handleAllergenChande} />
+                    <Form.Check name='wheat' type="switch" label="Wheat" checked={allergenData.wheat} onChange={handleAllergenChande} />
+                    <Form.Check name='milk' type="switch" label="Milk" checked={allergenData.milk} onChange={handleAllergenChande} />
                 </Form.Group>
 
-                <Form.Group className="mb-3">
+                <Form.Group className="mb-3" controlId="nutrients" >
                     <Form.Label>{'Put kcal amount please'}</Form.Label>
-                    <Form.Control controlId="nutrients" name='kcal' type="number" value={nutrientsData.kcal} onChange={handleNutrientsChange} />
+                    <Form.Control name='kcal' type="number" value={nutrientsData.kcal} onChange={handleNutrientsChange} />
+
                     <Form.Label>{'Put protein amount please'}</Form.Label>
-                    <Form.Control controlId="nutrients" name='protein' type="number" value={nutrientsData.protein} onChange={handleNutrientsChange} />
+                    <Form.Control name='protein' type="number" value={nutrientsData.protein} onChange={handleNutrientsChange} />
                 </Form.Group>
 
                 <Button type="submit">Submit</Button>

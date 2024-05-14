@@ -26,8 +26,6 @@ const CookieCard = ({ name, imageUrl, brand, id }) => {
                             </Link>
                         </Card.Body>
                     </Col>
-
-
                 </Row>
             </Container>
         </Card>
