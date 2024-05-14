@@ -1,17 +1,17 @@
 import { useState } from "react"
 import { FloatingLabel, Form, Button } from "react-bootstrap"
-import { useParams } from "react-router-dom"
+import { useParams, useNavigate } from "react-router-dom"
 import axios from "axios"
 
 
 const API_URL = "http://localhost:5000"
 
-const AddNewReview = () => {
+const AddNewReview = ({ getAllReviews }) => {
 
     const { cookieId } = useParams()
 
-
     const [reviewData, setReviewData] = useState({
+        cookieId: cookieId,
         like: false,
         dippingRating: 1,
         userName: "",
@@ -28,11 +28,12 @@ const AddNewReview = () => {
         event.preventDefault()
 
         axios
-            .post(`${API_URL}/reviews/${cookieId}`, reviewData)
-            .then(() => navigate('/'))
+            .post(`${API_URL}/reviews`, reviewData)
+            .then(() => getAllReviews())
             .catch((err) => console.log(err))
 
     }
+
 
 
     return (
@@ -40,32 +41,30 @@ const AddNewReview = () => {
 
             <Form onSubmit={handleReviewSubmit}>
 
-                <Form.Group
-                >
-                    <FloatingLabel controlId="userName"
+                <Form.Group>
+                    <FloatingLabel
+                        controlId="userName"
+                        label="Add your Name"
                     >
 
                         <Form.Control
                             className="mb-3"
-
-                            label="Add your Name"
                             type="text"
                             name="userName"
                             value={reviewData.userName}
                             onChange={handleInputChange}
                         />
                     </FloatingLabel>
-
-
                 </Form.Group>
 
                 <FloatingLabel
                     controlId="floatingTextarea2"
+                    label="Add your review"
 
                 >
                     <Form.Control
                         as="textarea"
-                        label="Add your review"
+
                         name="commentText"
                         className="mb-3"
                         value={reviewData.commentText}

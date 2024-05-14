@@ -1,15 +1,30 @@
 import axios from "axios"
 import { useState, useEffect } from "react"
-import { Col, Row, Container, ListGroup, Button } from "react-bootstrap"
+import { Col, Row, ListGroup, Button } from "react-bootstrap"
 import { useNavigate, useParams } from "react-router-dom"
 import { Link } from "react-router-dom"
 import ReviewsList from "../../components/ReviewsList/ReviewsList"
+import AddNewReview from "../../components/AddNewReview/AddNewReview"
 
 const API_URL = "http://localhost:5000"
 
 const CookiesDetailsPage = () => {
 
+    const [cookie, setCookie] = useState({})
+    const [isLoading, setIsLoading] = useState(true)
+
+    const [reviews, setReviews] = useState([])
+
+    const [isLoadingReviews, setIsLoadingReviews] = useState(true);
+
     const navigate = useNavigate()
+
+    const { cookieId } = useParams()
+
+    useEffect(() => {
+        loadCookie()
+        getAllReviews()
+    }, [])
 
     const deleteCookie = () => {
         axios
@@ -17,16 +32,6 @@ const CookiesDetailsPage = () => {
             .then(() => navigate('/'))
             .catch((err) => console.log(err))
     }
-
-    const [cookie, setCookie] = useState({})
-
-    const [isLoading, setIsLoading] = useState(true)
-
-    const { cookieId } = useParams()
-
-    useEffect(() => {
-        loadCookie()
-    }, [])
 
     const loadCookie = () => {
         axios
@@ -38,10 +43,24 @@ const CookiesDetailsPage = () => {
             .catch(err => console.log(err))
     }
 
+    useEffect(() => {
+        getAllReviews()
+    }, [])
+
+    const getAllReviews = () => {
+        axios
+            .get(`${API_URL}/cookie/${cookieId}?_embed=reviews`)
+            .then(({ data }) => {
+                setReviews(data.reviews);
+                setIsLoadingReviews(false);
+            })
+            .catch((err) => console.log(err));
+    };
+
 
     return (
 
-        <Container className="mt-5">
+        <>
 
             <Link to="/">
                 <Button as="span" variant="primary" size="sm">
@@ -82,11 +101,9 @@ const CookiesDetailsPage = () => {
                             </ListGroup>
                         </Col>
 
-                        <Button variant="secondary" size="sm">
-                            Edit cookie's details
-                        </Button>
 
-                        <ListGroup className="mt-0">
+                        <Col>
+
 
                             <p>Ingredients : </p>
                             <ul>
@@ -108,26 +125,24 @@ const CookiesDetailsPage = () => {
                                 <li>Kilocalories : {cookie.nutrients?.kcal}</li>
                                 <li>Protein : {cookie.nutrients?.protein}</li>
                             </ul>
-                        </ListGroup>
 
-                        <Button
-                            variant="secondary"
-                            size="sm"
-                            as="span"
-                            onClick={deleteCookie}>Delete Cookie
-                        </Button>
-
-
-
-
-                        <Col md={{ span: 12 }}>
                             <p>{cookie.description}</p>
+                            <Button variant="secondary" size="sm">
+                                Edit cookie's details
+                            </Button>
+
+                            <Button
+                                variant="secondary"
+                                size="sm"
+                                as="span"
+                                onClick={deleteCookie}>Delete Cookie
+                            </Button>
                         </Col>
 
+                        <AddNewReview getAllReviews={getAllReviews} />
 
                         <Col md={{ span: 12 }}>
-                            <h4>"Aqui van todos los comentarios"</h4>
-                            <ReviewsList />
+                            <ReviewsList reviews={reviews} getAllReviews={getAllReviews} />
                         </Col>
 
                     </Row>
@@ -135,7 +150,7 @@ const CookiesDetailsPage = () => {
 
 
 
-        </Container>
+        </>
 
     )
 }

@@ -8,27 +8,7 @@ import { useParams } from "react-router-dom"
 
 const API_URL = "http://localhost:5000"
 
-const ReviewsList = () => {
-
-    const { cookieId } = useParams()
-
-    const [reviews, setReviews] = useState([])
-
-    const [isLoading, setIsLoading] = useState(true);
-
-    useEffect(() => {
-        getAllReviews()
-    }, [])
-
-    const getAllReviews = () => {
-        axios
-            .get(`${API_URL}/cookie/${cookieId}?_embed=reviews`)
-            .then(({ data }) => {
-                setReviews(data.reviews);
-                setIsLoading(false);
-            })
-            .catch((err) => console.log(err));
-    };
+const ReviewsList = ({ reviews, isLoading }) => {
 
     return (
         <div className="ReviewsList" >

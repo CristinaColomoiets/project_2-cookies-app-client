@@ -1,7 +1,7 @@
 
 import { Card } from 'react-bootstrap';
 
-const ReviewCard = ({ id, cookieId, like, dippingRating, userName, comment_text }) => {
+const ReviewCard = ({ id, cookieId, like, dippingRating, userName, commentText }) => {
 
     return (
 
@@ -9,7 +9,7 @@ const ReviewCard = ({ id, cookieId, like, dippingRating, userName, comment_text 
             <Card.Body>
                 <Card.Title>{userName}</Card.Title>
                 <Card.Text>
-                    {comment_text}
+                    {commentText}
                 </Card.Text>
             </Card.Body>
         </Card>

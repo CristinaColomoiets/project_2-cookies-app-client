@@ -72,7 +72,7 @@ const NewCookieForm = () => {
         event.preventDefault()
 
         axios
-            .post(`${API_URL}/cookies`, cookieData)
+            .post(`${API_URL}/cookie`, cookieData)
             .then(() => navigate('/'))
             .catch((err) => console.log(err))
 
