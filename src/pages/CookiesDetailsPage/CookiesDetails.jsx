@@ -6,7 +6,7 @@ import { Link } from "react-router-dom"
 import ReviewsList from "../../components/ReviewsList/ReviewsList"
 import AddNewReview from "../../components/AddNewReview/AddNewReview"
 
-const API_URL = "http://localhost:5000"
+const API_URL = import.meta.env.VITE_API_URL
 
 const CookiesDetailsPage = () => {
 

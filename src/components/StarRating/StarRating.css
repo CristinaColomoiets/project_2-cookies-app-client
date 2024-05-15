@@ -1,0 +1,7 @@
+Label [type=radio] {
+    display: none
+}
+
+.StarRating {
+    cursor: pointer
+}

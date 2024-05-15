@@ -2,7 +2,7 @@
 import { Row, Col, Card, Button, Container } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
-const API_URL = "http://localhost:5000"
+const API_URL = import.meta.env.VITE_API_URL
 
 
 const CookieCard = ({ name, imageUrl, brand, id }) => {

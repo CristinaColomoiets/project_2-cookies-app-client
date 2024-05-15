@@ -2,6 +2,7 @@ import { Container } from "react-bootstrap"
 import CookiesList from "../../components/CookiesList/CookiesList"
 
 
+
 const HomePage = () => {
     return (
         <div className="HomePage">
@@ -11,6 +12,7 @@ const HomePage = () => {
                 <CookiesList />
 
             </Container>
+
         </div>
     )
 }
