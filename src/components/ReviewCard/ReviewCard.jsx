@@ -7,7 +7,8 @@ const ReviewCard = ({ id, cookieId, like, dippingRating, userName, commentText }
 
         <Card border="secondary">
             <Card.Body>
-                <Card.Title>{userName}</Card.Title>
+                <Card.Title>{userName}
+                </Card.Title>
                 <Card.Text>
                     {commentText}
                 </Card.Text>
