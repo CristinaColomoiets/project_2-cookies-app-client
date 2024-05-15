@@ -1,6 +1,8 @@
 import { Container, Navbar, Nav, NavDropdown } from "react-bootstrap"
 import { Link } from "react-router-dom"
 import cookieLogoImg from "../../assets/cookie-navbar2.png"
+import CookiesSearch from "../../components/CookiesSearch/CookiesSearch"
+
 
 const Navigation = () => {
     return (
@@ -37,6 +39,7 @@ const Navigation = () => {
                     <Nav.Link href="#link" as='span'>Reviews</Nav.Link>
                     <Nav.Link href="#link">Cookies Community</Nav.Link>
                 </Navbar.Collapse>
+                <CookiesSearch />
             </Container>
         </Navbar>
 
