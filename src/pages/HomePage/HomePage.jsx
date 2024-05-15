@@ -1,7 +1,8 @@
 import { Container, Row, Col, Button } from "react-bootstrap"
 import CookiesList from "../../components/CookiesList/CookiesList"
-import { useState } from "react"
 import axios from "axios"
+import { useState, useEffect } from "react"
+
 
 const HomePage = () => {
 
@@ -10,7 +11,41 @@ const HomePage = () => {
     const [cookies, setCookies] = useState([])
     const [isLoading, setIsLoading] = useState(true)
 
+    useEffect(() => {
+        getAllCookies()
+    }, [])
+
+    const getAllCookies = () => {
+        axios
+            .get(`${API_URL}/cookie`)
+            .then(({ data }) => {
+                setIsLoading(false)
+                setCookies(data)
+            })
+            .catch((err) => console.log(err))
+    }
+
+    const getKidsCookies = () => {
+        axios
+            .get(`${API_URL}/cookie?kidsAvailable=true`)
+            .then(({ data }) => {
+                setIsLoading(false)
+                setCookies(data)
+            })
+            .catch((err) => console.log(err))
+    }
+
     const getCeliacCookies = () => {
+        axios
+            .get(`${API_URL}/cookie?celiac=true`)
+            .then(({ data }) => {
+                setIsLoading(false)
+                setCookies(data)
+            })
+            .catch((err) => console.log(err))
+    }
+
+    const getBestDippingCookies = () => {
         axios
             .get(`${API_URL}/cookie?celiac=true`)
             .then(({ data }) => {
@@ -24,19 +59,23 @@ const HomePage = () => {
         <div className="HomePage">
             <Container>
                 <Row>
-                    <Col md={{span: 4}}>
-                        <Button as='span' variant="outline-success">For Kids</Button>
+                    <Col md={{span: 3}}>
+                        <Button as='span' variant="outline-success" onClick={getAllCookies}>All cookies</Button>
+                    </Col>
+
+                    <Col md={{span: 3}}>
+                        <Button as='span' variant="outline-success" onClick={getKidsCookies}>For Kids</Button>
                     </Col>
                     
-                    <Col md={{span: 4}}>
+                    <Col md={{span: 3}}>
                         <Button as='span' variant="outline-success" onClick={getCeliacCookies}>For celiac</Button>
                     </Col>
                     
-                    <Col md={{span: 4}}>
-                        <Button as='span' variant="outline-success">Best dipping</Button>
+                    <Col md={{span: 3}}>
+                        <Button as='span' variant="outline-success" onClick={getBestDippingCookies}>Best dipping</Button>
                     </Col>
                 </Row>
-                <CookiesList isLoading={isLoading}  cookies={cookies} getCeliacCookies={getCeliacCookies}/>
+                <CookiesList isLoading={isLoading}  cookies={cookies}/>
             </Container>
 
         </div>
