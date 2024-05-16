@@ -2,6 +2,7 @@ import './App.css'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import Navigation from './components/Navbar/Navbar'
 import AppRoutes from './routes/AppRoutes'
+import Footer from './components/Footer/Footer'
 
 function App() {
 
@@ -10,7 +11,7 @@ function App() {
 
       <Navigation/>
       <AppRoutes/>
-     
+     <Footer></Footer>
     </div>
   )
 }
