@@ -5,6 +5,7 @@ import { useNavigate, useParams } from "react-router-dom"
 import { Link } from "react-router-dom"
 import ReviewsListById from "../../components/ReviewsListById/ReviewsListById"
 import AddNewReview from "../../components/AddNewReview/AddNewReview"
+import './CookiesDetails.css'
 
 const API_URL = import.meta.env.VITE_API_URL
 
@@ -62,44 +63,37 @@ const CookiesDetailsPage = () => {
         <>
             <Container>
 
-                <Link to="/">
-                    <Button as="span" variant="primary" size="sm">
-                        Go Back
-                    </Button>
-                </Link>
-
                 {
                     isLoading
                         ?
                         <Spinner animation="border" />
                         :
-                        <Row>
+                        <Row className="deatails-box">
 
-                            <Col md={{ span: 4, offset: 2 }}>
+                            <Col md={{ span: 4}}>
                                 <img src={cookie.imageUrl}></img>
                             </Col>
 
-                            <Col md={{ span: 2 }}>
-                                <ListGroup className="mt-0">
-                                    <h2>{cookie.name}</h2>
+                            <Col md={{ span: 4 }}>
+                                <ListGroup>
+                                    <div className="txt-card-details">
+                                        <h2>{cookie.name}</h2>
+                                        <h5>Brand : {cookie.brand}</h5>
+                                        <p>Origin Country : {cookie.originCountry}</p>
+                                        <p>Bought in : {cookie.buyCountry}</p>
+                                        <p>Available in : {cookie.buySupermarket}</p>
 
-                                    <hr />
-
-                                    <h5>Brand : {cookie.brand}</h5>
-                                    <p>Origin Country : {cookie.originCountry}</p>
-                                    <p>Bought in : {cookie.buyCountry}</p>
-                                    <p>Available in : {cookie.buySupermarket}</p>
-
-                                    <p>Suitable for Celiac :
-                                        {
-                                            <strong> {cookie.celiac ? " Yes " : " No"}</strong>
-                                        }
-                                    </p>
+                                        <p>Suitable for Celiac :
+                                            {
+                                                <strong> {cookie.celiac ? " Yes " : " No"}</strong>
+                                            }
+                                        </p>
+                                    </div>
                                 </ListGroup>
                             </Col>
 
 
-                            <Col>
+                            <Col md={{ span: 4 }} className="txt-card-details">
                                 <p>Ingredients : </p>
                                 <ul>
                                     {
@@ -122,14 +116,16 @@ const CookiesDetailsPage = () => {
                                 </ul>
 
                                 <Button onClick={() => setOpen(!open)} aria-controls="example-collapse-text" aria-expanded={open}>
-                                    open
+                                    open description
                                 </Button>
                                 <Collapse in={open}>
-                                    <div id="example-collapse-text">
+                                    <div id="example-collapse-text" className="txt-card-details">
                                         {cookie.description}
                                     </div>
                                 </Collapse>
+                            </Col>
 
+                            <Col >
                                 <Link to={`/cookie/edit/${cookieId}`}>
 
                                     <Button variant="secondary" size="sm">
