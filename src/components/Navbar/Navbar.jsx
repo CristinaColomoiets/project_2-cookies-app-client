@@ -8,8 +8,7 @@ import './Navbar.css'
 const Navigation = () => {
     return (
 
-        <Navbar expand="md" className="bg-custom-nav">
-            <Container>
+        <Navbar expand="md" className="bg-custom-nav"> 
                 <Link to="/" href="/">
                     <img
                         src={cookieLogoImg}
@@ -41,7 +40,6 @@ const Navigation = () => {
                     </Nav>
                 </Navbar.Collapse>
                 <CookiesSearch />
-            </Container>
         </Navbar>
 
     )

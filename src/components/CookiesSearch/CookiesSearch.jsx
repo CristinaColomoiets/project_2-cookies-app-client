@@ -1,6 +1,6 @@
 import axios from 'axios'
 import {Form, Button, Card, Image, ListGroup} from 'react-bootstrap';
-import {Link} from 'react-router-dom'
+import {Link, useParams} from 'react-router-dom'
 import {useState} from 'react'
 import './CookiesSearch.css'
 
@@ -11,17 +11,28 @@ const CookiesSearch = ()=>{
 
     const [cookiesData, setCookiesData] = useState([])
     const [cookieQuery, setCookieQuery] = useState('')
+    const {cookieId} = useParams()
+
+    const [listCookiesFiltered, setListCookiesFiltered] = useState(false)
 
     const handleFilterChange = (event)=>{
         const {value} = event.target;
         setCookieQuery(value)
+        setListCookiesFiltered(false)
         filterCookies(value)
     }
 
     const filterCookies = (nameQuery) =>{
-        axios.get(`${API_URL}/cookie/?name_like=${nameQuery}`)
+        axios
+        .get(`${API_URL}/cookie/?name_like=${nameQuery}`)
         .then(({data})=> setCookiesData(data))
         .catch((error)=>console.log(error))
+    }
+
+    const handleSelectCookie = (boolean)=>{
+        setListCookiesFiltered(boolean)
+        setCookieQuery('')
+        setCookiesData([])
     }
 
     return (
@@ -35,22 +46,27 @@ const CookiesSearch = ()=>{
                     onChange = {handleFilterChange}
                     value={cookieQuery}
                 />
-                <Button className="btn-search">Search</Button>
             </Form>
-            <ListGroup style={{position: 'absolute', zIndex: 10}}>
-                {
-                    cookiesData.map((elm)=>{
-                        return(
-                            <ListGroup.Item>
-                                <Link key={elm.id}>
-                                    <Image src={elm.imageUrl}/>
-                                    <p>{elm.name}</p>
-                                </Link>
-                            </ListGroup.Item>
-                        )
-                    })
-                }
-            </ListGroup>
+            {
+                !listCookiesFiltered ?
+                <ListGroup className='bg-list-group' style={{position: 'absolute', zIndex: 10}}>
+                    {
+                        cookiesData.map((elm, index)=>{
+                            return(
+                                <ListGroup.Item key={index} className='mini-card-cookie' onClick={()=>handleSelectCookie(true)}>
+                                    <Link className='link' to={`/cookie/${elm.id}`}>
+                                        <Image className='mini-img-cookie-search' src={elm.imageUrl}/>
+                                        <p className='txt-mini-card'>{elm.name}</p>
+                                    </Link>
+                                </ListGroup.Item>
+                            )
+                        })
+                    }
+                </ListGroup>
+                
+                :
+                setListCookiesFiltered(true)
+            }
         </div>
     )
 }

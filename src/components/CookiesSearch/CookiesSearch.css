@@ -13,10 +13,9 @@
 }
 
 .input-search{
-    border: 1px solid #562413;
+    border: 1px solid #945b31;
     border-radius: 1rem;
     color: #945b31;
-    margin: 0 1rem;
 }
 
 .input-search::placeholder{
@@ -31,4 +30,28 @@
 .input-search:focus {
     box-shadow: none !important;
     outline: none !important;
-  }
+}
+
+
+.mini-img-cookie-search{
+    width: 5rem;
+}
+
+.mini-card-cookie{
+    width: 14rem;
+    height: 7rem;
+    z-index: 20;
+    display: flex;
+    flex-flow: column;
+    justify-content: flex-start;
+}
+
+.txt-mini-card{
+    color: #945b31;
+    font-size: .8rem;
+    margin: 0;
+}
+
+.link{
+    text-decoration: none;
+}
