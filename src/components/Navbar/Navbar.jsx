@@ -1,8 +1,8 @@
-import { Container, Navbar, Nav} from "react-bootstrap"
+import { Container, Navbar, Nav } from "react-bootstrap"
 import { Link } from "react-router-dom"
 import cookieLogoImg from "../../assets/cookie-navbar2.png"
 import CookiesSearch from "../../components/CookiesSearch/CookiesSearch"
-
+import "./Navbar.css"
 
 const Navigation = () => {
     return (

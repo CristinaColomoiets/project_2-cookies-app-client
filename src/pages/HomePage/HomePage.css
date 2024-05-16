@@ -1,0 +1,14 @@
+.filterButtons {
+    margin-top: 3rem;
+    border-radius: 50px;
+    color: #945b31;
+    border: 1px solid #945b31;
+
+}
+
+.filterButtons:hover {
+    background-color: #945b31;
+    border: #945b31;
+
+
+}

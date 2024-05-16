@@ -3,7 +3,6 @@ import { FloatingLabel, Form, Button, Col, Row } from "react-bootstrap";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import LikeButton from "../LikeButton/LikeButton";
-
 import StarRating from "../StarRating/StarRating";
 
 const API_URL = import.meta.env.VITE_API_URL;
@@ -13,7 +12,7 @@ const AddNewReview = ({ getAllReviews }) => {
     const { cookieId } = useParams();
 
     const [reviewData, setReviewData] = useState({
-        cookieId: cookieId,
+        cookieId: Number(cookieId),
         like: false,
         dippingRating: 0,
         userName: "",
@@ -28,6 +27,10 @@ const AddNewReview = ({ getAllReviews }) => {
 
     const handleRatingChange = (value) => {
         setReviewData({ ...reviewData, dippingRating: value });
+    };
+
+    const handleLikeChange = (checked) => {
+        setReviewData({ ...reviewData, like: checked });
     };
 
     const handleReviewSubmit = (event) => {
@@ -45,7 +48,9 @@ const AddNewReview = ({ getAllReviews }) => {
                     <Row>
 
                         <StarRating setRating={handleRatingChange} />
-                        <LikeButton />
+                        <LikeButton
+                            checked={reviewData.like}
+                            setLike={handleLikeChange} />
 
                     </Row>
 

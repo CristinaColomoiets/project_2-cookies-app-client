@@ -14,7 +14,7 @@ const ReviewsListById = ({ reviews, isLoading }) => {
                         ?
                         <Spinner animation="border" />
                         :
-                        reviews.map(elm => <ReviewCard key={elm.id} {...elm} />)
+                        reviews.map(elm => <ReviewCard class="shadow-lg p-3 mb-5 bg-white rounded" key={elm.id} {...elm} />)
                 }
 
             </Row>
