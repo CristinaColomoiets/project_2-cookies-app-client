@@ -32,15 +32,18 @@ function Footer() {
                 </Link>
             </div>
             <div className="right">
-                <a href='https://www.instagram.com/cientocookies?igsh=MndrZ3l6czIzN3Zo'>
-                    <img src={instagramImg} alt="instagram-icon" height="25"/>
-                </a>
-                <a href='https://github.com/89cherry'>
-                    <img src={githubImg_1} alt="github-icon" height="25"/>
-                </a>
-                <a href='https://github.com/CristinaColomoiets'>
-                    <img src={githubImg_2} alt="github-icon" height="25"/>
-                </a>
+                <div className="box-colaboration">
+                    <p className='txt-name'>Diego Cerezo:</p>
+                    <a href='https://github.com/89cherry'>
+                        <img src={githubImg_1} alt="github-icon" height="25"/>
+                    </a>
+                </div>
+                <div className="box-colaboration">
+                    <p className='txt-name'>Cristina Kolomoiets:</p>
+                    <a href='https://github.com/CristinaColomoiets'>
+                        <img src={githubImg_2} alt="github-icon" height="25"/>
+                    </a>
+                </div>
             </div>
         </div>
     );

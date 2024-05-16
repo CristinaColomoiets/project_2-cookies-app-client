@@ -4,6 +4,7 @@ import { FaStar } from 'react-icons/fa';
 import axios from 'axios';
 import { useState, useEffect } from 'react';
 import LikeButton from '../LikeButton/LikeButton';
+import './CookieCard.css'
 
 const API_URL = import.meta.env.VITE_API_URL;
 
@@ -33,13 +34,13 @@ const CookieCard = ({ name, imageUrl, brand, id, originCountry }) => {
     }, [id]);
 
     return (
-        <Card border="secondary">
-            <Card.Img variant="top" src={imageUrl} alt={name} />
+        <Card className="card-box">
+            <Card.Img className='img-card' variant="top" src={imageUrl} alt={name} />
             <Card.Body>
-                <Card.Title>{name}</Card.Title>
-                <Card.Text>{brand}</Card.Text>
+                <Card.Title className='txt-card'>{name}</Card.Title>
+                <Card.Text className='txt-card'>{brand}</Card.Text>
 
-                <Card.Text>
+                <Card.Text className='stars-box'>
                     {[...Array(5)].map((star, index) => {
                         const ratingValue = index + 1;
                         return (
@@ -47,7 +48,7 @@ const CookieCard = ({ name, imageUrl, brand, id, originCountry }) => {
                                 <FaStar
                                     className="StarRating2"
                                     size={30}
-                                    color={ratingValue <= dippingRatingAvg ? "green" : "grey"}
+                                    color={ratingValue <= dippingRatingAvg ? "#ba8f6f" : "#ffe4c1"}
                                 />
                             </label>
                         );
@@ -55,14 +56,11 @@ const CookieCard = ({ name, imageUrl, brand, id, originCountry }) => {
                 </Card.Text>
             </Card.Body>
 
-
-            <Col md={{ span: 4 }}>
-                <Card.Body>
-                    <Link to={`/cookie/${id}`}>
-                        <Button as="span">Details</Button>
-                    </Link>
-                </Card.Body>
-            </Col>
+            <Card.Body className='btn-box'>
+                <Link to={`/cookie/${id}`}>
+                    <Button className='btn-card' as="span">Details</Button>
+                </Link>
+            </Card.Body>
         </Card>
     );
 };

@@ -1,12 +1,14 @@
 .footerContainer{
     width: 100%;
     padding: 2rem;
-    background-color: #f7d7ae;
+    background-color: #8b6345;
     display: flex;
     flex-flow: row;
     justify-content: space-between;
     align-content: center;
     align-items: center;
+
+    /* position: fixed; */
 }
 
 .left{
@@ -19,15 +21,25 @@
 
 .left .link{
     text-decoration: none;
-    color: #b16d3e;
+    color: #f2ce99;
     font-weight: 600;
     text-transform: uppercase;
 }
 
 .right{
-    width: 10%;
+    width: 40%;
     display: flex;
     flex-flow: row;
-    justify-content: space-around;
+    justify-content: flex-end;
     align-items: center;
+}
+
+.box-colaboration{
+    display: flex;
+    margin: 0 .5rem;
+}
+
+.txt-name{
+    color: #f2ce99;
+    margin: 0 .5rem;
 }
