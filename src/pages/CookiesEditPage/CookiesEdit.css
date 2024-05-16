@@ -1,0 +1,60 @@
+.container-edit-form{
+    margin: 2rem;
+}
+
+.input-edit{
+    color: #945b31;
+}
+
+.form-control:focus {
+    color: #945b31;
+    border-color: #d0ab7b;
+    outline: 0;
+    box-shadow: none;
+}
+.form-control{
+    color: #945b31;
+}
+
+
+.form-check-input:checked {
+    background-color: #d0ab7b;
+    border-color: #d0ab7b;
+    outline: none;
+    box-shadow: none;
+    border:#d0ab7b ;
+}
+
+.form-check-input:focus {
+    border-color:#d0ab7b;
+    outline: 0;
+    box-shadow: none;
+}
+
+.form-edit-row{
+    margin: 2rem 0;
+}
+
+
+.btn-submit{
+    margin: 2rem 0;
+    border: 1px solid #f4c992;
+    border-radius: 1rem;
+    color: #f4c992;
+    background-color: white;
+}
+
+.btn-submit:hover{
+    border: 1px solid #d0ab7b;
+    color: #d0ab7b;
+    background-color: white;
+}
+
+.btn-back{
+    padding: .5rem 1rem;
+    border: 1px solid #f4c992;
+    border-radius: 1rem;
+    color: #f4c992;
+    background-color: white;
+    text-decoration: none;
+}
