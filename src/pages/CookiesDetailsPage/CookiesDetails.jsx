@@ -1,6 +1,6 @@
 import axios from "axios"
 import { useState, useEffect } from "react"
-import { Col, Row, ListGroup, Button, Container, Spinner } from "react-bootstrap"
+import { Col, Row, ListGroup, Button, Container, Spinner, Collapse } from "react-bootstrap"
 import { useNavigate, useParams } from "react-router-dom"
 import { Link } from "react-router-dom"
 import ReviewsListById from "../../components/ReviewsListById/ReviewsListById"
@@ -15,6 +15,8 @@ const CookiesDetailsPage = () => {
     const [isLoading, setIsLoading] = useState(true)
 
     const [reviews, setReviews] = useState([])
+
+    const [open, setOpen] = useState(false);
 
     const [isLoadingReviews, setIsLoadingReviews] = useState(true);
 
@@ -43,10 +45,6 @@ const CookiesDetailsPage = () => {
             })
             .catch(err => console.log(err))
     }
-
-    useEffect(() => {
-        getAllReviews()
-    }, [])
 
     const getAllReviews = () => {
         axios
@@ -82,7 +80,6 @@ const CookiesDetailsPage = () => {
                             </Col>
 
                             <Col md={{ span: 2 }}>
-
                                 <ListGroup className="mt-0">
                                     <h2>{cookie.name}</h2>
 
@@ -98,15 +95,11 @@ const CookiesDetailsPage = () => {
                                             <strong> {cookie.celiac ? " Yes " : " No"}</strong>
                                         }
                                     </p>
-
-
                                 </ListGroup>
                             </Col>
 
 
                             <Col>
-
-
                                 <p>Ingredients : </p>
                                 <ul>
                                     {
@@ -128,7 +121,15 @@ const CookiesDetailsPage = () => {
                                     <li>Protein : {cookie.nutrients?.protein}</li>
                                 </ul>
 
-                                <p>{cookie.description}</p>
+                                <Button onClick={() => setOpen(!open)} aria-controls="example-collapse-text" aria-expanded={open}>
+                                    open
+                                </Button>
+                                <Collapse in={open}>
+                                    <div id="example-collapse-text">
+                                        {cookie.description}
+                                    </div>
+                                </Collapse>
+                            
                                 <Link to={`/cookie/edit/${cookieId}`}>
 
                                     <Button variant="secondary" size="sm">
