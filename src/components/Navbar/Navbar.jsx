@@ -2,13 +2,17 @@ import { Container, Navbar, Nav } from "react-bootstrap"
 import { Link } from "react-router-dom"
 import cookieLogoImg from "../../assets/cookie-navbar2.png"
 import CookiesSearch from "../../components/CookiesSearch/CookiesSearch"
+<<<<<<< HEAD
 import "./Navbar.css"
+=======
+import './Navbar.css'
+
+>>>>>>> 28198a357814b98cfcba18e424466b1e8739a728
 
 const Navigation = () => {
     return (
 
-        <Navbar expand="md" className="bg-body-tertiary" data-bs-theme="dark">
-            <Container>
+        <Navbar expand="md" className="bg-custom-nav"> 
                 <Link to="/" href="/">
                     <img
                         src={cookieLogoImg}
@@ -19,30 +23,27 @@ const Navigation = () => {
                 </Link>
 
                 <br />
-                <Navbar className="bg-body-tertiary">
+                <Navbar className="bg-custom-nav">
                     <Container>
-                        <Navbar.Brand>Cookies Diary</Navbar.Brand>
+                        <Navbar.Brand className="name-logo-navbar">Cookies Diary</Navbar.Brand>
                     </Container>
                 </Navbar>
                 <br />
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="me-auto">
-                        <Link to={`/cookie/add-cookie`}>
-                            <Nav.Link href="#link" as='span'>Add a new cookie</Nav.Link>
+                        <Link className="link" to={`/cookie/add-cookie`}>
+                            <Nav.Link className="txt-navbar" href="#link" as='span'>Add a new cookie</Nav.Link>
                         </Link>
 
-                        <Link to={`/reviews/all-reviews`}>
-                            <Nav.Link href="#link" as='span'>Reviews</Nav.Link>
+                        <Link className="link" to={`/reviews/all-reviews`}>
+                            <Nav.Link className="txt-navbar" href="#link" as='span'>Reviews</Nav.Link>
                         </Link>
 
-                        <Nav.Link href="#link">Cookies Community</Nav.Link>
+                        <Nav.Link className="txt-navbar" href="#link">Cookies Community</Nav.Link>
                     </Nav>
-
                 </Navbar.Collapse>
-
                 <CookiesSearch />
-            </Container>
         </Navbar>
 
     )

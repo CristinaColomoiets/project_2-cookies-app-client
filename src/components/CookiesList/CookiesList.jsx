@@ -1,9 +1,6 @@
 import { Col, Row, Spinner } from "react-bootstrap"
 import CookieCard from "../CookieCard/CookieCard"
 
-const API_URL = import.meta.env.VITE_API_URL
-
-
 
 const CookiesList = ({ isLoading, cookies }) => {
 

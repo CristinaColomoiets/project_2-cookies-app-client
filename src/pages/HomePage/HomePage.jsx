@@ -31,7 +31,7 @@ const HomePage = () => {
     const getKidsCookies = () => {
         setIsLoading(true);
         axios
-            .get(`${API_URL}/cookie`)
+            .get(`${API_URL}/cookie?forKids=true`)
             .then(({ data }) => {
                 setIsLoading(false);
                 setCookies(data.filter(cookie => cookie.forKids));
@@ -90,6 +90,24 @@ const HomePage = () => {
             </div>
 
             <Container>
+                <Row>
+                    <Col md={{ span: 3 }}>
+                        <Button as='span' variant="outline-success" onClick={getAllCookies}>All cookies</Button>
+                    </Col>
+
+                    <Col md={{ span: 3 }}>
+                        <Button as='span' variant="outline-success" onClick={getKidsCookies}>For Kids</Button>
+                    </Col>
+
+                    <Col md={{ span: 3 }}>
+                        <Button as='span' variant="outline-success" onClick={getCeliacCookies}>For celiac</Button>
+                    </Col>
+
+                    <Col md={{ span: 3 }}>
+                        <Button as='span' variant="outline-success">Best dipping</Button>
+                        {/* onClick={getBestDippingCookies} */}
+                    </Col>
+                </Row>
                 <CookiesList isLoading={isLoading} cookies={cookies} />
             </Container>
         </div>
