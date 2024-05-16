@@ -21,6 +21,7 @@ const NewCookieForm = () => {
         buySupermarket: "",
         celiac: false,
         ingredients: [],
+        forKids: false
     })
 
     const [allergenData, setAllergenData] = useState({
@@ -154,6 +155,16 @@ const NewCookieForm = () => {
                         type="checkbox"
                         label="Suitable for celiac?"
                         checked={cookieData.celiac}
+                        onChange={handleInputChange}
+                    />
+                </Form.Group>
+
+                <Form.Group className="mb-3" controlId="forKids">
+                    <Form.Check
+                        name='forKids'
+                        type="checkbox"
+                        label="Suitable for kids?"
+                        checked={cookieData.forKids}
                         onChange={handleInputChange}
                     />
                 </Form.Group>

@@ -1,13 +1,15 @@
 import { useState } from "react";
-import { FloatingLabel, Form, Button } from "react-bootstrap";
+import { FloatingLabel, Form, Button, Col, Row } from "react-bootstrap";
 import { useParams } from "react-router-dom";
 import axios from "axios";
+import LikeButton from "../LikeButton/LikeButton";
 
 import StarRating from "../StarRating/StarRating";
 
 const API_URL = import.meta.env.VITE_API_URL;
 
 const AddNewReview = ({ getAllReviews }) => {
+
     const { cookieId } = useParams();
 
     const [reviewData, setReviewData] = useState({
@@ -17,6 +19,7 @@ const AddNewReview = ({ getAllReviews }) => {
         userName: "",
         commentText: ""
     });
+
 
     const handleInputChange = event => {
         const { name, value } = event.target;
@@ -39,7 +42,13 @@ const AddNewReview = ({ getAllReviews }) => {
         <div className="NewReviewForm mt-3">
             <Form onSubmit={handleReviewSubmit}>
                 <Form.Group>
-                    <StarRating setRating={handleRatingChange} />
+                    <Row>
+
+                        <StarRating setRating={handleRatingChange} />
+                        <LikeButton />
+
+                    </Row>
+
                     <FloatingLabel controlId="userName" label="Add your Name">
                         <Form.Control
                             className="mb-3"
@@ -49,6 +58,7 @@ const AddNewReview = ({ getAllReviews }) => {
                             onChange={handleInputChange}
                         />
                     </FloatingLabel>
+
                 </Form.Group>
                 <FloatingLabel controlId="floatingTextarea2" label="Add your review">
                     <Form.Control

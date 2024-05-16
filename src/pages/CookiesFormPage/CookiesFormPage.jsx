@@ -1,18 +1,18 @@
 import NewCookieForm from "../../components/NewCookieForm/NewCookieForm"
 import img_bg from './../../assets/add-cookie-image.jpg'
-import {Container, Row, Col} from 'react-bootstrap'
+import { Container, Row, Col } from 'react-bootstrap'
 
-const CookiesFormPage = () =>{
-    return(
+const CookiesFormPage = () => {
+    return (
         <div className="CookiesFormPage">
 
             <Container>
-                <h1>Nueva galleta</h1>
+                <h1>Add new cookie</h1>
                 <hr />
                 <Row>
                     <Col md={{ span: 6 }} >
 
-                        <NewCookieForm/>
+                        <NewCookieForm />
 
                     </Col>
 

@@ -7,7 +7,6 @@ const ReviewsListById = ({ reviews, isLoading }) => {
         <div className="ReviewsList" >
 
 
-
             <Row className="mt-5">
 
                 {

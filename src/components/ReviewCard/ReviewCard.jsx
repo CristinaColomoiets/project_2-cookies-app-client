@@ -3,24 +3,25 @@ import { FaStar } from 'react-icons/fa';
 import { useState } from 'react';
 
 
-const ReviewCard = ({ id, cookieId, like, dippingRating, userName, commentText }) => {
+const ReviewCard = ({ dippingRating, userName, commentText }) => {
 
     const [hover, setHover] = useState();
-    const [rating, setRatingState] = useState();
+
 
     return (
 
         <Card border="secondary">
             <Card.Body>
 
-                <Card.Title> {userName} </Card.Title>
+                <Card.Title> {userName} </Card.Title>\
 
                 <Card.Text>{commentText} </Card.Text>
 
                 <Card.Text>
 
-                    {[...Array(dippingRating)].map((star, index) => {
+                    {[...Array(5)].map((star, index) => {
 
+                        const ratingValue = index + 1;
 
                         return (
                             <label key={index}>
@@ -33,7 +34,7 @@ const ReviewCard = ({ id, cookieId, like, dippingRating, userName, commentText }
                                 <FaStar
                                     className="StarRating2"
                                     size={30}
-                                    color={dippingRating <= 5 ? "green" : "grey"}
+                                    color={ratingValue <= dippingRating ? "green" : "grey"}
 
 
                                 />
