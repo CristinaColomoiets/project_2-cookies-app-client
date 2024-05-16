@@ -1,0 +1,33 @@
+.footerContainer{
+    width: 100%;
+    padding: 2rem;
+    background-color: #f7d7ae;
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+    align-content: center;
+    align-items: center;
+}
+
+.left{
+    width: 10%;
+    display: flex;
+    flex-flow: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.left .link{
+    text-decoration: none;
+    color: #b16d3e;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.right{
+    width: 10%;
+    display: flex;
+    flex-flow: row;
+    justify-content: space-around;
+    align-items: center;
+}

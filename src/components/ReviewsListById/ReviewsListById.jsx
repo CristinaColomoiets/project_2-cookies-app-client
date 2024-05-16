@@ -1,4 +1,4 @@
-import { Row } from "react-bootstrap"
+import { Row, Spinner } from "react-bootstrap"
 import ReviewCard from "../ReviewCard/ReviewCard"
 
 const ReviewsListById = ({ reviews, isLoading }) => {
@@ -12,7 +12,7 @@ const ReviewsListById = ({ reviews, isLoading }) => {
                 {
                     isLoading
                         ?
-                        <h1>CARGANDO...</h1>
+                        <Spinner animation="border" />
                         :
                         reviews.map(elm => <ReviewCard key={elm.id} {...elm} />)
                 }
