@@ -1,5 +1,6 @@
 import axios from 'axios'
 import {Form, Button, Card, CardBody, ListGroup} from 'react-bootstrap';
+import {Link} from 'react-router-dom'
 import {useState} from 'react'
 
 
@@ -38,14 +39,18 @@ const CookiesSearch = ()=>{
             <ListGroup>
                 {
                     cookiesData.map((elm)=>{
-                    <Card style={{ width: '18rem' }}>
-                        <CardBody key={elm.id}>
-                            <Card.Img variant="top" src={elm.imageUrl} />
-                            <Card.Title>{elm.name}</Card.Title>
-                            <Card.Title>{elm.brand}</Card.Title>
-                            <Button variant="primary">Choose cookie</Button>
-                        </CardBody>
-                    </Card>
+                        return(
+                            <Link key={elm.id}>
+                                <Card style={{ width: '8rem'}}>
+                                    <CardBody >
+                                        <Card.Img variant="top" src={elm.imageUrl} />
+                                        <Card.Title>{elm.name}</Card.Title>
+                                        <Card.Title>{elm.brand}</Card.Title>
+                                        <Button variant="primary">Choose cookie</Button>
+                                    </CardBody>
+                                </Card>
+                            </Link>
+                        )
                     })
                 }
             </ListGroup>
