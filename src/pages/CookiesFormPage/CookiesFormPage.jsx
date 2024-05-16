@@ -7,7 +7,7 @@ const CookiesFormPage = () =>{
         <div className="CookiesFormPage">
 
             <Container>
-                <h1>Nueva galleta</h1>
+                <h1>New cookie: </h1>
                 <hr />
                 <Row>
                     <Col md={{ span: 6 }} >

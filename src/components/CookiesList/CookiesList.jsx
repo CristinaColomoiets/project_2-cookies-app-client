@@ -1,4 +1,4 @@
-import { Col, Row } from "react-bootstrap"
+import { Col, Row, Spinner} from "react-bootstrap"
 import CookieCard from "../CookieCard/CookieCard"
 
 const API_URL = import.meta.env.VITE_API_URL
@@ -11,22 +11,21 @@ const CookiesList = ({isLoading, cookies}) => {
         <div className="CookiesList" >
             {
                 isLoading ?
-                    <h1>Cargando...</h1>
-                    :
-                    <>
+                <Spinner animation="border" />
+
+                :  
+                <Row className="mt-5">
+                    {
+                        cookies.map((eachCookie) => {
+                            return (
+                                <Col md={{ span: 3 }} key={eachCookie.id}>
+                                    <CookieCard {...eachCookie}/>
+                                </Col>
+                            )
+                        })
+                    }
+                </Row>
             
-                    <Row className="mt-5">
-                        {
-                            cookies.map((eachCookie) => {
-                                return (
-                                    <Col md={{ span: 3 }} key={eachCookie.id}>
-                                        <CookieCard {...eachCookie}/>
-                                    </Col>
-                                )
-                            })
-                        }
-                    </Row>
-                    </>
             }
         </div >
 

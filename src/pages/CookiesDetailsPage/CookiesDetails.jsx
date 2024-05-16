@@ -1,6 +1,6 @@
 import axios from "axios"
 import { useState, useEffect } from "react"
-import { Col, Row, ListGroup, Button, Container } from "react-bootstrap"
+import { Col, Row, ListGroup, Button, Container, Spinner } from "react-bootstrap"
 import { useNavigate, useParams } from "react-router-dom"
 import { Link } from "react-router-dom"
 import ReviewsListById from "../../components/ReviewsListById/ReviewsListById"
@@ -73,7 +73,7 @@ const CookiesDetailsPage = () => {
                 {
                     isLoading
                         ?
-                        <h1>CARGANDO...</h1>
+                        <Spinner animation="border" />
                         :
                         <Row>
 
