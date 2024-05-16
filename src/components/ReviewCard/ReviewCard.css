@@ -1,0 +1,26 @@
+.reviewCard {
+    width: 36rem;
+    height: 12rem;
+    margin-bottom: 10px;
+    position: relative;
+    border: 1px solid rgb(244, 201, 146);
+    margin: 2rem 1rem;
+    padding: 1rem;
+    box-shadow: 0px 0px 25px rgba(244, 201, 146, 0.5);
+
+}
+
+.heart-icon {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+
+}
+
+.userTitle {
+    color: #945b31;
+}
+
+.StarRareviewStars {
+    width: 1.2rem;
+}

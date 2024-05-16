@@ -116,7 +116,7 @@ const CookiesDetailsPage = () => {
                                 </ul>
 
                                 <Button onClick={() => setOpen(!open)} aria-controls="example-collapse-text" aria-expanded={open}>
-                                    open description
+                                    Description
                                 </Button>
                                 <Collapse in={open}>
                                     <div id="example-collapse-text" className="txt-card-details">

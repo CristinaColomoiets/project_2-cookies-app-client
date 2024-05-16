@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import LikeButton from "../LikeButton/LikeButton";
 import StarRating from "../StarRating/StarRating";
+import "./AddNewReview.css";
 
 const API_URL = import.meta.env.VITE_API_URL;
 
@@ -18,7 +19,6 @@ const AddNewReview = ({ getAllReviews }) => {
         userName: "",
         commentText: ""
     });
-
 
     const handleInputChange = event => {
         const { name, value } = event.target;
@@ -45,13 +45,15 @@ const AddNewReview = ({ getAllReviews }) => {
         <div className="NewReviewForm mt-3">
             <Form onSubmit={handleReviewSubmit}>
                 <Form.Group>
-                    <Row>
-
-                        <StarRating setRating={handleRatingChange} />
-                        <LikeButton
-                            checked={reviewData.like}
-                            setLike={handleLikeChange} />
-
+                    <Row className="align-items-center mb-3">
+                        <Col xs="auto">
+                            <StarRating setRating={handleRatingChange} />
+                        </Col>
+                        <Col xs="auto">
+                            <LikeButton className="like-button"
+                                checked={reviewData.like}
+                                setLike={handleLikeChange} />
+                        </Col>
                     </Row>
 
                     <FloatingLabel controlId="userName" label="Add your Name">

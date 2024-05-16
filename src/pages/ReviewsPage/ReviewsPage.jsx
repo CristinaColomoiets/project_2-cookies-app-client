@@ -25,8 +25,8 @@ const ReviewsPage = () => {
     return (
         <div className="ReviewsPage">
             <Container>
-                <Row>
-                    <Col>
+                <Row >
+                    <Col md={{ span: "12", offset: "3" }} >
 
                         {
 
