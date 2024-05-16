@@ -61,98 +61,99 @@ const CookiesDetailsPage = () => {
     return (
 
         <>
-            <Container>
+            {
+                isLoading
+                ?
+                <Spinner animation="border" />
+                :
+                <>
+                <Container className="container-details">
+                    <Row className="deatails-box">
+                        <Col md={{offset: 6, span: 6}}>
+                            <div className="titles">
+                                <h2>{cookie.name}</h2>
+                                <h3>Brand : {cookie.brand}</h3>
+                            </div>
+                        </Col>
+                    </Row>
 
-                {
-                    isLoading
-                        ?
-                        <Spinner animation="border" />
-                        :
-                        <Row className="deatails-box">
+                    <Row>
+                        <Col md={{ span: 6}}>
+                            <img src={cookie.imageUrl}></img>
+                        </Col>
 
-                            <Col md={{ span: 4}}>
-                                <img src={cookie.imageUrl}></img>
-                            </Col>
+                        <Col md={{ span: 3 }}>
+                            <ListGroup>
+                                <div className="txt-card-details">
+                                    <p>Origin Country : {cookie.originCountry}</p>
+                                    <p>Bought in : {cookie.buyCountry}</p>
+                                    <p>Available in : {cookie.buySupermarket}</p>
 
-                            <Col md={{ span: 4 }}>
-                                <ListGroup>
-                                    <div className="txt-card-details">
-                                        <h2>{cookie.name}</h2>
-                                        <h5>Brand : {cookie.brand}</h5>
-                                        <p>Origin Country : {cookie.originCountry}</p>
-                                        <p>Bought in : {cookie.buyCountry}</p>
-                                        <p>Available in : {cookie.buySupermarket}</p>
+                                    <p>Suitable for Celiac :
+                                        {
+                                            <strong> {cookie.celiac ? " Yes " : " No"}</strong>
+                                        }
+                                    </p>
+                                </div>
+                            </ListGroup>
+                        </Col>
 
-                                        <p>Suitable for Celiac :
-                                            {
-                                                <strong> {cookie.celiac ? " Yes " : " No"}</strong>
-                                            }
-                                        </p>
-                                    </div>
-                                </ListGroup>
-                            </Col>
+                        <Col md={{ span: 3 }} className="txt-card-details components-description">
+                            <p>Ingredients : </p>
+                            <ul>
+                                {
+                                    cookie.ingredients?.map((elm) => {
+                                        return <li key={elm}>{elm}</li>
+                                    })
+                                }
+                            </ul>
+                            <p>Allergens : </p>
+                            <ol>
+                                <li>{cookie.allergen?.cereal ? " Contains cereal " : " Not contains cereal"}</li>
+                                <li>{cookie.allergen?.soy ? " Contains soy " : " Not contains soy"}</li>
+                                <li>{cookie.allergen?.wheat ? " Contains wheat " : " Not contains wheat"}</li>
+                                <li>{cookie.allergen?.milk ? " Contains milk " : " Not contains milk"}</li>
+                            </ol>
+                            <p>Nutrients : </p>
+                            <ul>
+                                <li>Kilocalories : {cookie.nutrients?.kcal}</li>
+                                <li>Protein : {cookie.nutrients?.protein}</li>
+                            </ul>
 
+                            <Button className="btn-description" onClick={() => setOpen(!open)} aria-controls="example-collapse-text" aria-expanded={open}>
+                                Description
+                            </Button>
+                            <Collapse in={open}>
+                                <div id="example-collapse-text" className="txt-card-details">
+                                    {cookie.description}
+                                </div>
+                            </Collapse>
+                        </Col>
+                    </Row>
 
-                            <Col md={{ span: 4 }} className="txt-card-details">
-                                <p>Ingredients : </p>
-                                <ul>
-                                    {
-                                        cookie.ingredients?.map((elm) => {
-                                            return <li key={elm}>{elm}</li>
-                                        })
-                                    }
-                                </ul>
-                                <p>Allergens : </p>
-                                <ol>
-                                    <li>{cookie.allergen?.cereal ? " Contains cereal " : " Not contains cereal"}</li>
-                                    <li>{cookie.allergen?.soy ? " Contains soy " : " Not contains soy"}</li>
-                                    <li>{cookie.allergen?.wheat ? " Contains wheat " : " Not contains wheat"}</li>
-                                    <li>{cookie.allergen?.milk ? " Contains milk " : " Not contains milk"}</li>
-                                </ol>
-                                <p>Nutrients : </p>
-                                <ul>
-                                    <li>Kilocalories : {cookie.nutrients?.kcal}</li>
-                                    <li>Protein : {cookie.nutrients?.protein}</li>
-                                </ul>
-
-                                <Button onClick={() => setOpen(!open)} aria-controls="example-collapse-text" aria-expanded={open}>
-                                    Description
+                    <Row>
+                        <Col md={{offset:8,  span: 4}} >
+                            <Link to={`/cookie/edit/${cookieId}`}>
+                                <Button className="edit-delete" size="sm">
+                                    Edit cookie's details
                                 </Button>
-                                <Collapse in={open}>
-                                    <div id="example-collapse-text" className="txt-card-details">
-                                        {cookie.description}
-                                    </div>
-                                </Collapse>
-                            </Col>
+                            </Link>
+                            <Button
+                                className="edit-delete" 
+                                size="sm"
+                                as="span"
+                                onClick={deleteCookie}>Delete Cookie
+                            </Button>
+                        </Col>
+                    </Row>
+                </Container>
 
-                            <Col >
-                                <Link to={`/cookie/edit/${cookieId}`}>
-
-                                    <Button variant="secondary" size="sm">
-                                        Edit cookie's details
-                                    </Button>
-
-                                </Link>
-
-                                <Button
-                                    variant="secondary"
-                                    size="sm"
-                                    as="span"
-                                    onClick={deleteCookie}>Delete Cookie
-                                </Button>
-                            </Col>
-
-                            <AddNewReview getAllReviews={getAllReviews} />
-
-                            <Col md={{ span: 12 }}>
-                                <ReviewsListById reviews={reviews} getAllReviews={getAllReviews} />
-                            </Col>
-
-                        </Row>
-                }
-
-
-            </Container>
+                <Container>
+                    <AddNewReview getAllReviews={getAllReviews} />
+                    <ReviewsListById reviews={reviews} getAllReviews={getAllReviews} />
+                </Container>
+                </>
+            }
         </>
 
     )
