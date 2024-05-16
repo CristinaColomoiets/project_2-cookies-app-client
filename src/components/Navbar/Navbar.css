@@ -1,0 +1,28 @@
+
+.bg-custom-nav{
+    background-color: #f4c992;
+    font-family: "Poetsen One", sans-serif;
+
+}
+
+.name-logo-navbar{
+    color: #562413;
+    font-weight: 600;
+    background-color: #f4c992;
+}
+
+.name-logo-navbar:hover{
+    color: #562413;
+}
+
+.txt-navbar{
+    color: #945b31;
+}
+
+.txt-navbar:hover{
+    color: #562413;
+}
+
+.link{
+    text-decoration: none;
+}

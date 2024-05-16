@@ -1,0 +1,34 @@
+.btn-search{
+    border: 1px solid #562413;
+    border-radius: 1rem;
+    color: #945b31;
+    background-color: #f4c992;
+}
+
+.btn-search:hover{
+    border: 1px solid #562413;
+    border-radius: 1rem;
+    color: #562413;
+    background-color: #f4c992;
+}
+
+.input-search{
+    border: 1px solid #562413;
+    border-radius: 1rem;
+    color: #945b31;
+    margin: 0 1rem;
+}
+
+.input-search::placeholder{
+    color: #f4c992;
+    font-weight: 100;
+}
+
+.input-search:active{
+    border: 1px solid #f4c992 !important;
+}
+
+.input-search:focus {
+    box-shadow: none !important;
+    outline: none !important;
+  }

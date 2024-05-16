@@ -1,7 +1,8 @@
 import axios from 'axios'
-import {Form, Button, Card, CardBody, ListGroup} from 'react-bootstrap';
+import {Form, Button, Card, Image, ListGroup} from 'react-bootstrap';
 import {Link} from 'react-router-dom'
 import {useState} from 'react'
+import './CookiesSearch.css'
 
 
 const CookiesSearch = ()=>{
@@ -28,28 +29,24 @@ const CookiesSearch = ()=>{
             <Form className="d-flex">
                 <Form.Control
                     type="search"
-                    placeholder="Search"
-                    className="me-2"
+                    placeholder="search.."
+                    className="input-search"
                     aria-label="Search"
                     onChange = {handleFilterChange}
                     value={cookieQuery}
                 />
-                <Button variant="outline-success">Search</Button>
+                <Button className="btn-search">Search</Button>
             </Form>
-            <ListGroup>
+            <ListGroup style={{position: 'absolute', zIndex: 10}}>
                 {
                     cookiesData.map((elm)=>{
                         return(
-                            <Link key={elm.id}>
-                                <Card style={{ width: '8rem'}}>
-                                    <CardBody >
-                                        <Card.Img variant="top" src={elm.imageUrl} />
-                                        <Card.Title>{elm.name}</Card.Title>
-                                        <Card.Title>{elm.brand}</Card.Title>
-                                        <Button variant="primary">Choose cookie</Button>
-                                    </CardBody>
-                                </Card>
-                            </Link>
+                            <ListGroup.Item>
+                                <Link key={elm.id}>
+                                    <Image src={elm.imageUrl}/>
+                                    <p>{elm.name}</p>
+                                </Link>
+                            </ListGroup.Item>
                         )
                     })
                 }
