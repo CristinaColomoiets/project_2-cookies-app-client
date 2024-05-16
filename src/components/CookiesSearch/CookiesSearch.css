@@ -28,8 +28,8 @@
 }
 
 .input-search:focus {
-    box-shadow: none !important;
-    outline: none !important;
+    outline: 0;
+    box-shadow: none;
 }
 
 

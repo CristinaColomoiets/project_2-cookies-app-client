@@ -1,4 +1,32 @@
 .like-button {
     margin-left: 10px;
+}
 
+.inputReview::placeholder{
+    color: #ffdaaa;
+}
+
+.inputReview:focus{
+    border-color:#d0ab7b;
+    outline: 0;
+    box-shadow: none;
+}
+
+.inputReview{
+    margin: 1rem 0;
+    color: #945b31;
+    border: 1px solid #f7e8d6;
+}
+
+.btn-reviews{
+    border: 1px solid #f4c992;
+    border-radius: 1rem;
+    color: #f4c992;
+    background-color: white;
+}
+
+.btn-reviews:hover{
+    border: 1px solid #d0ab7b;
+    color: #d0ab7b;
+    background-color: white;
 }

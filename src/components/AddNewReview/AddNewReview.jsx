@@ -55,28 +55,24 @@ const AddNewReview = ({ getAllReviews }) => {
                                 setLike={handleLikeChange} />
                         </Col>
                     </Row>
-
-                    <FloatingLabel controlId="userName" label="Add your Name">
-                        <Form.Control
-                            className="mb-3"
-                            type="text"
-                            name="userName"
-                            value={reviewData.userName}
-                            onChange={handleInputChange}
-                        />
-                    </FloatingLabel>
-
                 </Form.Group>
-                <FloatingLabel controlId="floatingTextarea2" label="Add your review">
+                    <Form.Control
+                        className="inputReview"
+                        placeholder="Add your Name"
+                        type="text"
+                        name="userName"
+                        value={reviewData.userName}
+                        onChange={handleInputChange}
+                    />
                     <Form.Control
                         as="textarea"
                         name="commentText"
-                        className="mb-3"
+                        placeholder="Add your review"
+                        className="inputReview"
                         value={reviewData.commentText}
                         onChange={handleInputChange}
                     />
-                </FloatingLabel>
-                <Button type="submit">Add Review</Button>
+                <Button className="btn-reviews" type="submit">Add Review</Button>
             </Form>
         </div>
     );

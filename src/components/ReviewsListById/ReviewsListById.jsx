@@ -6,18 +6,14 @@ const ReviewsListById = ({ reviews, isLoading }) => {
     return (
         <div className="ReviewsList" >
 
+            {
+                isLoading
+                    ?
+                    <Spinner animation="border" />
+                    :
+                    reviews.map(elm => <ReviewCard class="shadow-lg p-3 mb-5 bg-white rounded" key={elm.id} {...elm} />)
+            }
 
-            <Row className="mt-5">
-
-                {
-                    isLoading
-                        ?
-                        <Spinner animation="border" />
-                        :
-                        reviews.map(elm => <ReviewCard class="shadow-lg p-3 mb-5 bg-white rounded" key={elm.id} {...elm} />)
-                }
-
-            </Row>
         </div >
 
     )

@@ -68,57 +68,59 @@ const CookiesDetailsPage = () => {
                 :
                 <>
                 <Container className="container-details">
-                    <Row className="deatails-box">
-                        <Col md={{offset: 6, span: 6}}>
-                            <div className="titles">
-                                <h2>{cookie.name}</h2>
-                                <h3>Brand : {cookie.brand}</h3>
-                            </div>
-                        </Col>
-                    </Row>
-
                     <Row>
                         <Col md={{ span: 6}}>
                             <img src={cookie.imageUrl}></img>
                         </Col>
 
-                        <Col md={{ span: 3 }}>
-                            <ListGroup>
-                                <div className="txt-card-details">
-                                    <p>Origin Country : {cookie.originCountry}</p>
-                                    <p>Bought in : {cookie.buyCountry}</p>
-                                    <p>Available in : {cookie.buySupermarket}</p>
+                        <Col md={{span: 6}}>
+                            <div className="titles">
+                                <h2>{cookie.name}</h2>
+                                <h3>Brand : {cookie.brand}</h3>
+                            </div>
 
-                                    <p>Suitable for Celiac :
-                                        {
-                                            <strong> {cookie.celiac ? " Yes " : " No"}</strong>
-                                        }
-                                    </p>
-                                </div>
-                            </ListGroup>
+                            <Row>
+                                <Col md={{span: 6}}>
+                                    <div className="txt-card-details">
+                                        <p>Origin Country : {cookie.originCountry}</p>
+                                        <p>Bought in : {cookie.buyCountry}</p>
+                                        <p>Available in : {cookie.buySupermarket}</p>
+
+                                        <p>Suitable for Celiac :
+                                            {
+                                                <strong> {cookie.celiac ? " Yes " : " No"}</strong>
+                                            }
+                                        </p>
+                                    </div>
+                                </Col>
+
+                                <Col md={{span: 6}}>
+                                    <div className="components-description txt-card-details">
+                                        <p>Ingredients : </p>
+                                        <ul>
+                                            {
+                                                cookie.ingredients?.map((elm) => {
+                                                    return <li key={elm}>{elm}</li>
+                                                })
+                                            }
+                                        </ul>
+                                        <p>Allergens : </p>
+                                        <ol>
+                                            <li>{cookie.allergen?.cereal ? " Contains cereal " : " Not contains cereal"}</li>
+                                            <li>{cookie.allergen?.soy ? " Contains soy " : " Not contains soy"}</li>
+                                            <li>{cookie.allergen?.wheat ? " Contains wheat " : " Not contains wheat"}</li>
+                                            <li>{cookie.allergen?.milk ? " Contains milk " : " Not contains milk"}</li>
+                                        </ol>
+                                        <p>Nutrients : </p>
+                                        <ul>
+                                            <li>Kilocalories : {cookie.nutrients?.kcal}</li>
+                                            <li>Protein : {cookie.nutrients?.protein}</li>
+                                        </ul>
+                                    </div>
+                                </Col>
+                            </Row>
                         </Col>
-
-                        <Col md={{ span: 3 }} className="txt-card-details components-description">
-                            <p>Ingredients : </p>
-                            <ul>
-                                {
-                                    cookie.ingredients?.map((elm) => {
-                                        return <li key={elm}>{elm}</li>
-                                    })
-                                }
-                            </ul>
-                            <p>Allergens : </p>
-                            <ol>
-                                <li>{cookie.allergen?.cereal ? " Contains cereal " : " Not contains cereal"}</li>
-                                <li>{cookie.allergen?.soy ? " Contains soy " : " Not contains soy"}</li>
-                                <li>{cookie.allergen?.wheat ? " Contains wheat " : " Not contains wheat"}</li>
-                                <li>{cookie.allergen?.milk ? " Contains milk " : " Not contains milk"}</li>
-                            </ol>
-                            <p>Nutrients : </p>
-                            <ul>
-                                <li>Kilocalories : {cookie.nutrients?.kcal}</li>
-                                <li>Protein : {cookie.nutrients?.protein}</li>
-                            </ul>
+                        <Col md={{ span: 12 }} className="txt-card-details components-description">
 
                             <Button className="btn-description" onClick={() => setOpen(!open)} aria-controls="example-collapse-text" aria-expanded={open}>
                                 Description
@@ -128,9 +130,10 @@ const CookiesDetailsPage = () => {
                                     {cookie.description}
                                 </div>
                             </Collapse>
+
                         </Col>
                     </Row>
-
+                       
                     <Row>
                         <Col md={{offset:8,  span: 4}} >
                             <Link to={`/cookie/edit/${cookieId}`}>

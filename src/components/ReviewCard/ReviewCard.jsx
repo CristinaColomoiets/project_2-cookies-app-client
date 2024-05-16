@@ -1,4 +1,4 @@
-import { Card, Col } from 'react-bootstrap';
+import { Button, Card, Col } from 'react-bootstrap';
 import { FaStar } from 'react-icons/fa';
 import heartOn from "./../../assets/hearton.svg";
 
@@ -33,10 +33,8 @@ const ReviewCard = ({ dippingRating, userName, commentText, like }) => {
                         {like && <img src={heartOn} alt="Heart On" height={40} width={40} />}
                     </Card.Text>
                 </Card.Text>
-                <Card.Text>{commentText}</Card.Text>
-
-                <Card.Body>
-                </Card.Body>
+                <Card.Text className='txt-coment'>{commentText}</Card.Text>
+                <span className='btn-delete'>X</span>
             </Card>
         </Col>
 

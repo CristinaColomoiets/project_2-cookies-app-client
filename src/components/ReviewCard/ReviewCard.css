@@ -1,7 +1,6 @@
 .reviewCard {
     width: 36rem;
-    height: 12rem;
-    margin-bottom: 10px;
+    /* height: 12rem; */
     position: relative;
     border: 1px solid rgb(244, 201, 146);
     margin: 2rem 1rem;
@@ -23,4 +22,17 @@
 
 .StarRareviewStars {
     width: 1.2rem;
+}
+
+.txt-coment{
+    color: #945b31;
+
+}
+
+.btn-delete{
+    color: #945b31;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
 }
