@@ -24,6 +24,8 @@ const CookiesList = () => {
         setIsLoading(false)
     }
 
+
+
     return (
         <div className="CookiesList" >
             {

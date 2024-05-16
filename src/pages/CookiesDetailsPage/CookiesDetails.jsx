@@ -3,7 +3,7 @@ import { useState, useEffect } from "react"
 import { Col, Row, ListGroup, Button, Container } from "react-bootstrap"
 import { useNavigate, useParams } from "react-router-dom"
 import { Link } from "react-router-dom"
-import ReviewsList from "../../components/ReviewsList/ReviewsList"
+import ReviewsListById from "../../components/ReviewsListById/ReviewsListById"
 import AddNewReview from "../../components/AddNewReview/AddNewReview"
 
 const API_URL = import.meta.env.VITE_API_URL
@@ -11,6 +11,7 @@ const API_URL = import.meta.env.VITE_API_URL
 const CookiesDetailsPage = () => {
 
     const [cookie, setCookie] = useState({})
+
     const [isLoading, setIsLoading] = useState(true)
 
     const [reviews, setReviews] = useState([])
@@ -147,7 +148,7 @@ const CookiesDetailsPage = () => {
                             <AddNewReview getAllReviews={getAllReviews} />
 
                             <Col md={{ span: 12 }}>
-                                <ReviewsList reviews={reviews} getAllReviews={getAllReviews} />
+                                <ReviewsListById reviews={reviews} getAllReviews={getAllReviews} />
                             </Col>
 
                         </Row>

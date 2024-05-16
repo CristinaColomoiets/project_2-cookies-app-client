@@ -3,7 +3,15 @@ import { FaStar } from "react-icons/fa";
 import './StarRating.css';
 
 const StarRating = ({ setRating }) => {
+
+    const [rating, setRatingState] = useState(0);
+
     const [hover, setHover] = useState(null);
+
+    const handleClick = (currentRate) => {
+        setRatingState(currentRate);
+        setRating(currentRate);
+    };
 
     return (
         <div>
@@ -15,13 +23,13 @@ const StarRating = ({ setRating }) => {
                             type="radio"
                             name="dippingRating"
                             value={currentRate}
-                            onClick={() => setRating(currentRate)}
+                            onClick={() => handleClick(currentRate)}
                             style={{ display: 'none' }}
                         />
                         <FaStar
                             className="StarRating"
                             size={30}
-                            color={currentRate <= (hover || null) ? "blue" : "grey"}
+                            color={currentRate <= (hover || rating) ? "green" : "grey"}
                             onMouseEnter={() => setHover(currentRate)}
                             onMouseLeave={() => setHover(null)}
                         />

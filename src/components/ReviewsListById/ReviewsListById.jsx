@@ -1,14 +1,7 @@
-import axios from "axios"
-import { useState, useEffect } from "react"
 import { Row } from "react-bootstrap"
 import ReviewCard from "../ReviewCard/ReviewCard"
-import { useParams } from "react-router-dom"
 
-// TODO: IMPLEMENTAR ESTADO DE CARGA
-
-const API_URL = import.meta.env.VITE_API_URL
-
-const ReviewsList = ({ reviews, isLoading }) => {
+const ReviewsListById = ({ reviews, isLoading }) => {
 
     return (
         <div className="ReviewsList" >
@@ -30,5 +23,5 @@ const ReviewsList = ({ reviews, isLoading }) => {
 
     )
 }
-export default ReviewsList
+export default ReviewsListById
 

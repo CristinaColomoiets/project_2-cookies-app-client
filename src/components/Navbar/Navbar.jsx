@@ -33,12 +33,16 @@ const Navigation = () => {
                         <Link to={`/cookie/add-cookie`}>
                             <Nav.Link href="#link" as='span'>Add a new cookie</Nav.Link>
                         </Link>
-                        {/* <Link to={`/reviews/all-reviews`}>
-                        </Link> */}
+
+                        <Link to={`/reviews/all-reviews`}>
+                            <Nav.Link href="#link" as='span'>Reviews</Nav.Link>
+                        </Link>
+
+                        <Nav.Link href="#link">Cookies Community</Nav.Link>
                     </Nav>
-                    <Nav.Link href="#link" as='span'>Reviews</Nav.Link>
-                    <Nav.Link href="#link">Cookies Community</Nav.Link>
+
                 </Navbar.Collapse>
+
                 <CookiesSearch />
             </Container>
         </Navbar>
