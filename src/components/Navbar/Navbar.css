@@ -1,6 +1,7 @@
 
 .bg-custom-nav{
-    background-color: #f4c992;
+    /* background-color: #f4c992; */
+    background-color: #906e55;
     font-family: "Poetsen One", sans-serif;
     padding: 0rem 2rem;
 
@@ -9,7 +10,7 @@
 .name-logo-navbar{
     color: #562413;
     font-weight: 600;
-    background-color: #f4c992;
+    background-color: #906e55;
 }
 
 .name-logo-navbar:hover{
@@ -18,6 +19,7 @@
 
 .txt-navbar{
     color: #ba8f6f;
+    transition: all .7s;
 }
 
 .txt-navbar:hover{

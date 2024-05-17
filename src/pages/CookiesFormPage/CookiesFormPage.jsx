@@ -8,7 +8,7 @@ const CookiesFormPage = () => {
 
             <Container>
                 <h1>Add new cookie</h1>
-                <hr />
+        
                 <Row>
                     <Col md={{ span: 6 }} >
 

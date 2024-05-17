@@ -33,7 +33,7 @@ const Navigation = () => {
                     </Link>
 
                     <Link className="link" to={`/reviews/all-reviews`}>
-                        <Nav.Link className="txt-navbar" href="#link" as='span'>Reviews</Nav.Link>
+                        <Nav.Link className="txt-navbar" href="#link" as='span'>All Reviews</Nav.Link>
                     </Link>
 
                     <Nav.Link className="txt-navbar" href="#link">Cookies Community</Nav.Link>
