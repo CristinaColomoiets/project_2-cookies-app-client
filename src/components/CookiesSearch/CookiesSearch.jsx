@@ -1,35 +1,35 @@
 import axios from 'axios'
-import {Form, Button, Card, Image, ListGroup} from 'react-bootstrap';
-import {Link, useParams} from 'react-router-dom'
-import {useState} from 'react'
+import { Form, Button, Card, Image, ListGroup } from 'react-bootstrap';
+import { Link, useParams } from 'react-router-dom'
+import { useState } from 'react'
 import './CookiesSearch.css'
 
+const API_URL = import.meta.env.VITE_API_URL
 
-const CookiesSearch = ()=>{
+const CookiesSearch = () => {
 
-    const API_URL = "http://localhost:5000"
 
     const [cookiesData, setCookiesData] = useState([])
     const [cookieQuery, setCookieQuery] = useState('')
-    const {cookieId} = useParams()
+    const { cookieId } = useParams()
 
     const [listCookiesFiltered, setListCookiesFiltered] = useState(false)
 
-    const handleFilterChange = (event)=>{
-        const {value} = event.target;
+    const handleFilterChange = (event) => {
+        const { value } = event.target;
         setCookieQuery(value)
         setListCookiesFiltered(false)
         filterCookies(value)
     }
 
-    const filterCookies = (nameQuery) =>{
+    const filterCookies = (nameQuery) => {
         axios
-        .get(`${API_URL}/cookie/?name_like=${nameQuery}`)
-        .then(({data})=> setCookiesData(data))
-        .catch((error)=>console.log(error))
+            .get(`${API_URL}/cookie/?name_like=${nameQuery}`)
+            .then(({ data }) => setCookiesData(data))
+            .catch((error) => console.log(error))
     }
 
-    const handleSelectCookie = (boolean)=>{
+    const handleSelectCookie = (boolean) => {
         setListCookiesFiltered(boolean)
         setCookieQuery('')
         setCookiesData([])
@@ -43,29 +43,29 @@ const CookiesSearch = ()=>{
                     placeholder="search.."
                     className="input-search"
                     aria-label="Search"
-                    onChange = {handleFilterChange}
+                    onChange={handleFilterChange}
                     value={cookieQuery}
                 />
             </Form>
             {
                 !listCookiesFiltered ?
-                <ListGroup className='bg-list-group' style={{position: 'absolute', zIndex: 10}}>
-                    {
-                        cookiesData.map((elm, index)=>{
-                            return(
-                                <ListGroup.Item key={index} className='mini-card-cookie' onClick={()=>handleSelectCookie(true)}>
-                                    <Link className='link' to={`/cookie/${elm.id}`}>
-                                        <Image className='mini-img-cookie-search' src={elm.imageUrl}/>
-                                        <p className='txt-mini-card'>{elm.name}</p>
-                                    </Link>
-                                </ListGroup.Item>
-                            )
-                        })
-                    }
-                </ListGroup>
-                
-                :
-                setListCookiesFiltered(true)
+                    <ListGroup className='bg-list-group' style={{ position: 'absolute', zIndex: 10 }}>
+                        {
+                            cookiesData.map((elm, index) => {
+                                return (
+                                    <ListGroup.Item key={index} className='mini-card-cookie' onClick={() => handleSelectCookie(true)}>
+                                        <Link className='link' to={`/cookie/${elm.id}`}>
+                                            <Image className='mini-img-cookie-search' src={elm.imageUrl} />
+                                            <p className='txt-mini-card'>{elm.name}</p>
+                                        </Link>
+                                    </ListGroup.Item>
+                                )
+                            })
+                        }
+                    </ListGroup>
+
+                    :
+                    setListCookiesFiltered(true)
             }
         </div>
     )

@@ -101,7 +101,7 @@ const CookiesEditPage = () => {
         <div>
             <Container className='container-edit-form'>
                 <Row className='form-edit-row'>
-                    <Col md={{span: 6}}>
+                    <Col md={{ span: 6 }}>
                         <Form onSubmit={handleFormSubmit}>
                             <Form.Group className="mb-3" controlId="imageUrl">
                                 <Form.Control
@@ -213,6 +213,19 @@ const CookiesEditPage = () => {
                                 <Form.Label>{'Put protein amount please'}</Form.Label>
                                 <Form.Control name='protein' type="number" value={nutrientsData.protein} onChange={handleNutrientsChange} />
                             </Form.Group>
+
+                            <FloatingLabel>
+                                <Form.Group className="mb-3" controlId="description">
+                                    <Form.Control
+                                        className='input-edit'
+                                        name='description'
+                                        placeholder="Description"
+                                        type='text'
+                                        value={cookieData.description}
+                                        onChange={handleInputChange}
+                                    />
+                                </Form.Group>
+                            </FloatingLabel>
 
                             <Button className='btn-submit' type="submit">Submit</Button>
                         </Form>

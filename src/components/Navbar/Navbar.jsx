@@ -36,7 +36,7 @@ const Navigation = () => {
                         <Nav.Link className="txt-navbar" href="#link" as='span'>All Reviews</Nav.Link>
                     </Link>
 
-                    <Nav.Link className="txt-navbar" href="#link">Cookies Community</Nav.Link>
+                    {/* <Nav.Link className="txt-navbar" href="#link">Cookies Community</Nav.Link> */}
                 </Nav>
             </Navbar.Collapse>
             <CookiesSearch />

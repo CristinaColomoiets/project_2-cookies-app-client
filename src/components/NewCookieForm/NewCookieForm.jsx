@@ -1,4 +1,4 @@
-import { Button, Form } from 'react-bootstrap';
+import { Button, Form, FloatingLabel } from 'react-bootstrap';
 import { useState } from 'react';
 import { useNavigate } from "react-router-dom";
 import axios from 'axios';
@@ -199,6 +199,22 @@ const NewCookieForm = () => {
                     <Form.Label>{'Put protein amount please'}</Form.Label>
                     <Form.Control name='protein' type="number" value={nutrientsData.protein} onChange={handleNutrientsChange} />
                 </Form.Group>
+
+                <FloatingLabel>
+                    <Form.Group className="mb-3" controlId="description">
+                        <Form.Control
+                            className='input-edit'
+                            name='description'
+                            placeholder="Description"
+                            type='text'
+                            value={cookieData.description}
+                            onChange={handleInputChange}
+                        />
+                    </Form.Group>
+                </FloatingLabel>
+
+
+
 
                 <Button className='btn-submit' type="submit">Submit</Button>
             </Form>
