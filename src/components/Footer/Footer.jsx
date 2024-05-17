@@ -20,7 +20,7 @@ function Footer() {
     return (
         <div className="footerContainer">
             <div className="left">
-                <Link className='link'>about</Link>
+                <Link to={'/about'} className='link'>about</Link>
                 <Link to=''>
                     <img
                         src={cookieLogoImg}

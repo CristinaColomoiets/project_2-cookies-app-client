@@ -2,7 +2,7 @@
 .bg-custom-nav{
     background-color: #f4c992;
     font-family: "Poetsen One", sans-serif;
-    padding: 1rem;
+    padding: 0rem 2rem;
 
 }
 
@@ -17,7 +17,7 @@
 }
 
 .txt-navbar{
-    color: #945b31;
+    color: #ba8f6f;
 }
 
 .txt-navbar:hover{

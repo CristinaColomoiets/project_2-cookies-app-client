@@ -90,7 +90,6 @@ const HomePage = () => {
             </div>
 
             <Container>
-
                 <CookiesList isLoading={isLoading} cookies={cookies} />
             </Container>
         </div>

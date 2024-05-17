@@ -5,6 +5,7 @@ import CookiesDetailsPage from './../pages/CookiesDetailsPage/CookiesDetails'
 import CookiesFormPage from '../pages/CookiesFormPage/CookiesFormPage'
 import ReviewsPage from './../pages/ReviewsPage/ReviewsPage'
 import CookiesEdit from './../pages/CookiesEditPage/CookiesEdit'
+import AboutPage from '../pages/AboutPage/AboutPage'
 
 const AppRoutes = () => {
 
@@ -15,6 +16,7 @@ const AppRoutes = () => {
       <Route path='/reviews/all-reviews' element={<ReviewsPage />} />
       <Route path='/cookie/:cookieId' element={<CookiesDetailsPage />} />
       <Route path='/cookie/edit/:cookieId' element={<CookiesEdit/>}/>
+      <Route path='/about' element={<AboutPage/>}/>
     </Routes>
   )
 }
