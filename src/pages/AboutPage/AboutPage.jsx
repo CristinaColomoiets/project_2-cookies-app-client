@@ -10,7 +10,7 @@ const AboutPage = () =>{
             <h1>Hey there, we are Diego and Cristina's team!</h1>
             <Row>
                 <Col md={{span: 4}}>
-                    <img src={imgCris} alt="image Developer Cristina" />
+                    <img className="img-team" src={imgCris} alt="image Developer Cristina" />
                 </Col>
                 <Col md={{span: 4}}>
                     <p>We are two Frontend Developers who carried out a second project at Ironhack.
@@ -23,7 +23,7 @@ const AboutPage = () =>{
                     </p>
                 </Col>
                 <Col md={{span: 4}}>
-                    <img src={imgDiego} alt="image Developer Diego" />
+                    <img className="img-team" src={imgDiego} alt="image Developer Diego" />
                 </Col>
             </Row>
         </Container>

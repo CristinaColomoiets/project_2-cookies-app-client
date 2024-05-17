@@ -5,5 +5,11 @@ h1{
 }
 
 .container-about{
+    /* padding: 3rem 0; */
+    margin: 3rem auto;
     color: #ad8261;
+}
+.img-team{
+    width: 20rem;
+    /* height: 35rem; */
 }
