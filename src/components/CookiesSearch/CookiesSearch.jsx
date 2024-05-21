@@ -1,39 +1,42 @@
-import axios from 'axios'
-import { Form, Button, Card, Image, ListGroup } from 'react-bootstrap';
-import { Link, useParams } from 'react-router-dom'
-import { useState } from 'react'
-import './CookiesSearch.css'
-
-const API_URL = import.meta.env.VITE_API_URL
+import axios from 'axios';
+import { Form, ListGroup, Image } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import './CookiesSearch.css';
 
 const CookiesSearch = () => {
+    const API_URL = "http://localhost:5000";
 
+    const [cookiesData, setCookiesData] = useState([]);
+    const [cookieQuery, setCookieQuery] = useState('');
+    const [listCookiesFiltered, setListCookiesFiltered] = useState(false);
 
-    const [cookiesData, setCookiesData] = useState([])
-    const [cookieQuery, setCookieQuery] = useState('')
-    const { cookieId } = useParams()
-
-    const [listCookiesFiltered, setListCookiesFiltered] = useState(false)
+    useEffect(() => {
+        if (cookieQuery) {
+            filterCookies(cookieQuery);
+        } else {
+            setCookiesData([]);
+        }
+    }, [cookieQuery]);
 
     const handleFilterChange = (event) => {
         const { value } = event.target;
-        setCookieQuery(value)
-        setListCookiesFiltered(false)
-        filterCookies(value)
-    }
+        setCookieQuery(value);
+        setListCookiesFiltered(false);
+    };
 
     const filterCookies = (nameQuery) => {
         axios
             .get(`${API_URL}/cookie/?name_like=${nameQuery}`)
             .then(({ data }) => setCookiesData(data))
-            .catch((error) => console.log(error))
-    }
+            .catch((error) => console.error(error));
+    };
 
-    const handleSelectCookie = (boolean) => {
-        setListCookiesFiltered(boolean)
-        setCookieQuery('')
-        setCookiesData([])
-    }
+    const handleSelectCookie = () => {
+        setListCookiesFiltered(true);
+        setCookieQuery('');
+        setCookiesData([]);
+    };
 
     return (
         <div className="containerSearch">
@@ -48,26 +51,22 @@ const CookiesSearch = () => {
                 />
             </Form>
             {
-                !listCookiesFiltered ?
-                    <ListGroup className='bg-list-group' style={{ position: 'absolute', zIndex: 10 }}>
-                        {
-                            cookiesData.map((elm, index) => {
-                                return (
-                                    <ListGroup.Item key={index} className='mini-card-cookie' onClick={() => handleSelectCookie(true)}>
-                                        <Link className='link' to={`/cookie/${elm.id}`}>
-                                            <Image className='mini-img-cookie-search' src={elm.imageUrl} />
-                                            <p className='txt-mini-card'>{elm.name}</p>
-                                        </Link>
-                                    </ListGroup.Item>
-                                )
-                            })
-                        }
-                    </ListGroup>
-
-                    :
-                    setListCookiesFiltered(true)
+                !listCookiesFiltered && cookiesData.length > 0 &&
+                <ListGroup className='bg-list-group' style={{ position: 'absolute', zIndex: 10 }}>
+                    {
+                        cookiesData.map((elm, index) => (
+                            <ListGroup.Item key={index} className='mini-card-cookie' onClick={handleSelectCookie}>
+                                <Link className='link' to={`/cookie/${elm.id}`}>
+                                    <Image className='mini-img-cookie-search' src={elm.imageUrl} />
+                                    <p className='txt-mini-card'>{elm.name}</p>
+                                </Link>
+                            </ListGroup.Item>
+                        ))
+                    }
+                </ListGroup>
             }
         </div>
-    )
-}
-export default CookiesSearch
+    );
+};
+
+export default CookiesSearch;
